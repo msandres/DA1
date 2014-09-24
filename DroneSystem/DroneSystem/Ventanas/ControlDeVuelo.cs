@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DroneSystem
+namespace DroneSystem.Ventanas
 {
-    public partial class Form1 : Form
+    public partial class ControlDeVuelo : Form
     {
-        public Form1()
+        public ControlDeVuelo()
         {
             InitializeComponent();
         }

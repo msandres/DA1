@@ -1,6 +1,6 @@
 ﻿namespace DroneSystem
 {
-    partial class Form1
+    partial class Principal
     {
         /// <summary>
         /// Variable del diseñador requerida.
