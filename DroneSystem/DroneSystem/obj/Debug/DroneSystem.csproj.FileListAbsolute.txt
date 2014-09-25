@@ -2,3 +2,4 @@ C:\ObligatorioDA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
 C:\Users\USER_ESC\Dropbox\Diseño AP1 2014\Obligatorio\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
 D:\Repo\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
 C:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
+D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config

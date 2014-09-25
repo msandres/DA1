@@ -44,6 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Composite\Altimetro.cs" />
+    <Compile Include="Dominio\Composite\Barometro.cs" />
+    <Compile Include="Dominio\Composite\Componente.cs" />
+    <Compile Include="Dominio\Composite\ComponenteAbstracto.cs" />
+    <Compile Include="Dominio\Composite\Gps.cs" />
+    <Compile Include="Dominio\Composite\Termometro.cs" />
+    <Compile Include="Dominio\Composite\Velocimetro.cs" />
+    <Compile Include="Dominio\Dron.cs" />
+    <Compile Include="PatronesExtras\Observer\IObserver.cs" />
+    <Compile Include="PatronesExtras\Observer\Observable.cs" />
     <Compile Include="Ventanas\ConfiguracionVariables.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,7 +72,7 @@
     <Compile Include="Ventanas\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Dominio\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Ventanas\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -90,8 +100,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Composite\" />
-    <Folder Include="Persistencia\" />
+    <Folder Include="Dominio\Persistencia\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
