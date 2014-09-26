@@ -8,7 +8,43 @@ namespace DroneSystem.Dominio.Composite
 {
     class Componente:ComponenteAbstracto
     {
-        IList<ComponenteAbstracto> listacomponentes;
+        public IList<ComponenteAbstracto> Listacomponentes { get; set; }
 
+
+        public Componente()
+        {
+            IdComponenteClase++;
+            this.IdComponente = IdComponenteClase;
+            Listacomponentes = new List<ComponenteAbstracto>();
+                
+        }
+
+
+        public override IList<Object> ObtenerValorActual()
+        {
+            IList<Object> listavaloes = new List<Object>();
+            return listavaloes;
+        }
+        public override IList<Object> ObtenerLimiteMaximo()
+        {
+            IList<Object> listavaloes = new List<Object>();
+            return listavaloes;
+        }
+        public override IList<Object> ObtenerLimiteMinimo()
+        {
+            IList<Object> listavaloes = new List<Object>();
+            return listavaloes;
+        }
+
+        public override IList<Object> ObtenerPrecision()
+        {
+            IList<Object> listavaloes = new List<Object>();
+            return listavaloes;
+        }
+
+        public override bool Alarmado()
+        {
+            return true;
+        }
     }
 }
