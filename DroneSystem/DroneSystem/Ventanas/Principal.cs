@@ -16,5 +16,15 @@ namespace DroneSystem
         {
             InitializeComponent();
         }
+
+        private void MArchivoCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MAyudaAcerdaDe_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Desarrollado por: \n\n Andrés Martínez (168474) \n Daniel Ferrari (?????)", "DronSystem - Obligatorio Diseño de Aplicaciones 2014");
+        }
     }
 }

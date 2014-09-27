@@ -52,6 +52,9 @@
     <Compile Include="Dominio\Composite\Termometro.cs" />
     <Compile Include="Dominio\Composite\Velocimetro.cs" />
     <Compile Include="Dominio\Dron.cs" />
+    <Compile Include="Dominio\Persistencia\CargaDatosBaseSQL.cs" />
+    <Compile Include="Dominio\Persistencia\CargaDatosManual.cs" />
+    <Compile Include="Dominio\Persistencia\ICargaDatos.cs" />
     <Compile Include="PatronesExtras\Observer\IObserver.cs" />
     <Compile Include="PatronesExtras\Observer\Observable.cs" />
     <Compile Include="Ventanas\ConfiguracionVariables.cs">
@@ -99,8 +102,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Dominio\Persistencia\" />
+    <Content Include="Imagenes\FondoDronSystem.jpg" />
+    <Content Include="Imagenes\HSA-Drone.ico" />
+    <Content Include="Imagenes\HSA-Drone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
