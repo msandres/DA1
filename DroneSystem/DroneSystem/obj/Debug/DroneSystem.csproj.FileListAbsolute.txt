@@ -13,3 +13,5 @@ D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.pdb
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csprojResolveAssemblyReference.cache
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.ConfiguracionVariables.resources
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.DiseniosDisponibles.resources
+D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.ModelosDisponibles.resources
+D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.ControlDeVuelo.resources

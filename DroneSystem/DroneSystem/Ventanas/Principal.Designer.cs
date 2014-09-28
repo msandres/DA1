@@ -31,12 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.reloj = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.lbComonentesDisp = new System.Windows.Forms.Label();
+            this.lbDronesDisp = new System.Windows.Forms.Label();
+            this.dataGridComponentes = new System.Windows.Forms.DataGridView();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModeloCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumSerieCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridDrones = new System.Windows.Forms.DataGridView();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MArchivoCerrar = new System.Windows.Forms.ToolStripMenuItem();
-            this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dronesDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.componentesDisponblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,19 +54,13 @@
             this.diseñosDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MAyudaAcerdaDe = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridDrones = new System.Windows.Forms.DataGridView();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridComponentes = new System.Windows.Forms.DataGridView();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModeloCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumSerieCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbDronesDisp = new System.Windows.Forms.Label();
-            this.lbComonentesDisp = new System.Windows.Forms.Label();
+            this.ejecutarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simuladoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.realToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelPrincipal.SuspendLayout();
-            this.Menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComponentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // reloj
@@ -83,12 +85,78 @@
             this.panelPrincipal.Size = new System.Drawing.Size(782, 468);
             this.panelPrincipal.TabIndex = 2;
             // 
+            // lbComonentesDisp
+            // 
+            this.lbComonentesDisp.AutoSize = true;
+            this.lbComonentesDisp.Location = new System.Drawing.Point(329, 54);
+            this.lbComonentesDisp.Name = "lbComonentesDisp";
+            this.lbComonentesDisp.Size = new System.Drawing.Size(129, 13);
+            this.lbComonentesDisp.TabIndex = 6;
+            this.lbComonentesDisp.Text = "Componentes Disponibles";
+            // 
+            // lbDronesDisp
+            // 
+            this.lbDronesDisp.AutoSize = true;
+            this.lbDronesDisp.Location = new System.Drawing.Point(11, 54);
+            this.lbDronesDisp.Name = "lbDronesDisp";
+            this.lbDronesDisp.Size = new System.Drawing.Size(98, 13);
+            this.lbDronesDisp.TabIndex = 5;
+            this.lbDronesDisp.Text = "Drones Disponibles";
+            // 
+            // dataGridComponentes
+            // 
+            this.dataGridComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridComponentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Marca,
+            this.ModeloCom,
+            this.NumSerieCom});
+            this.dataGridComponentes.Location = new System.Drawing.Point(332, 73);
+            this.dataGridComponentes.Name = "dataGridComponentes";
+            this.dataGridComponentes.Size = new System.Drawing.Size(385, 297);
+            this.dataGridComponentes.TabIndex = 4;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            // 
+            // ModeloCom
+            // 
+            this.ModeloCom.HeaderText = "Modelo";
+            this.ModeloCom.Name = "ModeloCom";
+            // 
+            // NumSerieCom
+            // 
+            this.NumSerieCom.HeaderText = "Numero de Serie";
+            this.NumSerieCom.Name = "NumSerieCom";
+            // 
+            // dataGridDrones
+            // 
+            this.dataGridDrones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDrones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Modelo,
+            this.NumeroSerie});
+            this.dataGridDrones.Location = new System.Drawing.Point(10, 73);
+            this.dataGridDrones.Name = "dataGridDrones";
+            this.dataGridDrones.Size = new System.Drawing.Size(259, 297);
+            this.dataGridDrones.TabIndex = 3;
+            // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            // 
+            // NumeroSerie
+            // 
+            this.NumeroSerie.HeaderText = "Numero de Serie";
+            this.NumeroSerie.Name = "NumeroSerie";
+            // 
             // Menu
             // 
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.ediciónToolStripMenuItem,
             this.verToolStripMenuItem,
+            this.ejecutarToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
@@ -123,12 +191,6 @@
             this.MArchivoCerrar.Size = new System.Drawing.Size(152, 22);
             this.MArchivoCerrar.Text = "Cerrar";
             this.MArchivoCerrar.Click += new System.EventHandler(this.MArchivoCerrar_Click);
-            // 
-            // ediciónToolStripMenuItem
-            // 
-            this.ediciónToolStripMenuItem.Name = "ediciónToolStripMenuItem";
-            this.ediciónToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.ediciónToolStripMenuItem.Text = "Edición";
             // 
             // verToolStripMenuItem
             // 
@@ -165,6 +227,7 @@
             this.modelosDisponiblesToolStripMenuItem.Name = "modelosDisponiblesToolStripMenuItem";
             this.modelosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.modelosDisponiblesToolStripMenuItem.Text = "Modelos Disponibles";
+            this.modelosDisponiblesToolStripMenuItem.Click += new System.EventHandler(this.modelosDisponiblesToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -194,71 +257,26 @@
             this.MAyudaAcerdaDe.Text = "Acerca de DronSystem";
             this.MAyudaAcerdaDe.Click += new System.EventHandler(this.MAyudaAcerdaDe_Click);
             // 
-            // dataGridDrones
+            // ejecutarToolStripMenuItem
             // 
-            this.dataGridDrones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridDrones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Modelo,
-            this.NumeroSerie});
-            this.dataGridDrones.Location = new System.Drawing.Point(10, 73);
-            this.dataGridDrones.Name = "dataGridDrones";
-            this.dataGridDrones.Size = new System.Drawing.Size(259, 297);
-            this.dataGridDrones.TabIndex = 3;
+            this.ejecutarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.simuladoToolStripMenuItem,
+            this.realToolStripMenuItem});
+            this.ejecutarToolStripMenuItem.Name = "ejecutarToolStripMenuItem";
+            this.ejecutarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.ejecutarToolStripMenuItem.Text = "Vuelo";
             // 
-            // Modelo
+            // simuladoToolStripMenuItem
             // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
+            this.simuladoToolStripMenuItem.Name = "simuladoToolStripMenuItem";
+            this.simuladoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.simuladoToolStripMenuItem.Text = "Simulado";
             // 
-            // NumeroSerie
+            // realToolStripMenuItem
             // 
-            this.NumeroSerie.HeaderText = "Numero de Serie";
-            this.NumeroSerie.Name = "NumeroSerie";
-            // 
-            // dataGridComponentes
-            // 
-            this.dataGridComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridComponentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Marca,
-            this.ModeloCom,
-            this.NumSerieCom});
-            this.dataGridComponentes.Location = new System.Drawing.Point(332, 73);
-            this.dataGridComponentes.Name = "dataGridComponentes";
-            this.dataGridComponentes.Size = new System.Drawing.Size(385, 297);
-            this.dataGridComponentes.TabIndex = 4;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            // 
-            // ModeloCom
-            // 
-            this.ModeloCom.HeaderText = "Modelo";
-            this.ModeloCom.Name = "ModeloCom";
-            // 
-            // NumSerieCom
-            // 
-            this.NumSerieCom.HeaderText = "Numero de Serie";
-            this.NumSerieCom.Name = "NumSerieCom";
-            // 
-            // lbDronesDisp
-            // 
-            this.lbDronesDisp.AutoSize = true;
-            this.lbDronesDisp.Location = new System.Drawing.Point(11, 54);
-            this.lbDronesDisp.Name = "lbDronesDisp";
-            this.lbDronesDisp.Size = new System.Drawing.Size(98, 13);
-            this.lbDronesDisp.TabIndex = 5;
-            this.lbDronesDisp.Text = "Drones Disponibles";
-            // 
-            // lbComonentesDisp
-            // 
-            this.lbComonentesDisp.AutoSize = true;
-            this.lbComonentesDisp.Location = new System.Drawing.Point(329, 54);
-            this.lbComonentesDisp.Name = "lbComonentesDisp";
-            this.lbComonentesDisp.Size = new System.Drawing.Size(129, 13);
-            this.lbComonentesDisp.TabIndex = 6;
-            this.lbComonentesDisp.Text = "Componentes Disponibles";
+            this.realToolStripMenuItem.Name = "realToolStripMenuItem";
+            this.realToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.realToolStripMenuItem.Text = "Real";
             // 
             // Principal
             // 
@@ -273,10 +291,10 @@
             this.Text = "DroneSystem";
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridComponentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).EndInit();
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridComponentes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,7 +308,6 @@
         private System.Windows.Forms.ToolStripMenuItem cargarDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem MArchivoCerrar;
-        private System.Windows.Forms.ToolStripMenuItem ediciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dronesDisponiblesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem componentesDisponblesToolStripMenuItem;
@@ -309,6 +326,9 @@
         private System.Windows.Forms.DataGridView dataGridDrones;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroSerie;
+        private System.Windows.Forms.ToolStripMenuItem ejecutarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem simuladoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem realToolStripMenuItem;
     }
 }
 
