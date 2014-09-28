@@ -10,7 +10,6 @@ namespace DroneSystem.Dominio.Composite
     {
 
 
-
         public override IList<Object> ObtenerValorActual()
         {
             IList<Object> listavaloes = new List<Object>();

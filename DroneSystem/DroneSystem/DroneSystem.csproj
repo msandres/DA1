@@ -69,6 +69,12 @@
     <Compile Include="Ventanas\ControlDeVuelo.Designer.cs">
       <DependentUpon>ControlDeVuelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\DiseniosDisponibles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\DiseniosDisponibles.Designer.cs">
+      <DependentUpon>DiseniosDisponibles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Ventanas\ConfiguracionVariables.resx">
       <DependentUpon>ConfiguracionVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\DiseniosDisponibles.resx">
+      <DependentUpon>DiseniosDisponibles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
