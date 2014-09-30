@@ -21,5 +21,7 @@ namespace DroneSystem.Ventanas
         {
             this.Close();
         }
+
+        
     }
 }
