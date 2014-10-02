@@ -52,11 +52,13 @@
             this.modelosDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.diseñosDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MAyudaAcerdaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.ejecutarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simuladoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MAyudaAcerdaDe = new System.Windows.Forms.ToolStripMenuItem();
+            this.planesDeVueloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComponentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).BeginInit();
@@ -177,18 +179,18 @@
             // cargarDatosToolStripMenuItem
             // 
             this.cargarDatosToolStripMenuItem.Name = "cargarDatosToolStripMenuItem";
-            this.cargarDatosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cargarDatosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.cargarDatosToolStripMenuItem.Text = "Cargar Datos";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
             // 
             // MArchivoCerrar
             // 
             this.MArchivoCerrar.Name = "MArchivoCerrar";
-            this.MArchivoCerrar.Size = new System.Drawing.Size(152, 22);
+            this.MArchivoCerrar.Size = new System.Drawing.Size(142, 22);
             this.MArchivoCerrar.Text = "Cerrar";
             this.MArchivoCerrar.Click += new System.EventHandler(this.MArchivoCerrar_Click);
             // 
@@ -241,6 +243,29 @@
             this.diseñosDisponiblesToolStripMenuItem.Text = "Diseños Disponibles";
             this.diseñosDisponiblesToolStripMenuItem.Click += new System.EventHandler(this.diseñosDisponiblesToolStripMenuItem_Click);
             // 
+            // ejecutarToolStripMenuItem
+            // 
+            this.ejecutarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.planesDeVueloToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.simuladoToolStripMenuItem,
+            this.realToolStripMenuItem});
+            this.ejecutarToolStripMenuItem.Name = "ejecutarToolStripMenuItem";
+            this.ejecutarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.ejecutarToolStripMenuItem.Text = "Vuelo";
+            // 
+            // simuladoToolStripMenuItem
+            // 
+            this.simuladoToolStripMenuItem.Name = "simuladoToolStripMenuItem";
+            this.simuladoToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.simuladoToolStripMenuItem.Text = "Simulado";
+            // 
+            // realToolStripMenuItem
+            // 
+            this.realToolStripMenuItem.Name = "realToolStripMenuItem";
+            this.realToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.realToolStripMenuItem.Text = "Real";
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -257,26 +282,17 @@
             this.MAyudaAcerdaDe.Text = "Acerca de DronSystem";
             this.MAyudaAcerdaDe.Click += new System.EventHandler(this.MAyudaAcerdaDe_Click);
             // 
-            // ejecutarToolStripMenuItem
+            // planesDeVueloToolStripMenuItem
             // 
-            this.ejecutarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.simuladoToolStripMenuItem,
-            this.realToolStripMenuItem});
-            this.ejecutarToolStripMenuItem.Name = "ejecutarToolStripMenuItem";
-            this.ejecutarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.ejecutarToolStripMenuItem.Text = "Vuelo";
+            this.planesDeVueloToolStripMenuItem.Name = "planesDeVueloToolStripMenuItem";
+            this.planesDeVueloToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.planesDeVueloToolStripMenuItem.Text = "Planes de Vuelo";
+            this.planesDeVueloToolStripMenuItem.Click += new System.EventHandler(this.planesDeVueloToolStripMenuItem_Click);
             // 
-            // simuladoToolStripMenuItem
+            // toolStripSeparator4
             // 
-            this.simuladoToolStripMenuItem.Name = "simuladoToolStripMenuItem";
-            this.simuladoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.simuladoToolStripMenuItem.Text = "Simulado";
-            // 
-            // realToolStripMenuItem
-            // 
-            this.realToolStripMenuItem.Name = "realToolStripMenuItem";
-            this.realToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.realToolStripMenuItem.Text = "Real";
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(154, 6);
             // 
             // Principal
             // 
@@ -329,6 +345,8 @@
         private System.Windows.Forms.ToolStripMenuItem ejecutarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem simuladoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem realToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem planesDeVueloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

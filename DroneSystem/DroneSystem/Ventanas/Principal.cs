@@ -54,6 +54,12 @@ namespace DroneSystem
             ventanaModelo.ShowDialog(this);
         }
 
+        private void planesDeVueloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlanesDisponibles ventanaPlanesDisp = new PlanesDisponibles();
+            ventanaPlanesDisp.ShowDialog(this);
+        }
+
         
     }
 }

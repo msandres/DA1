@@ -55,8 +55,15 @@
     <Compile Include="Dominio\Persistencia\CargaDatosBaseSQL.cs" />
     <Compile Include="Dominio\Persistencia\CargaDatosManual.cs" />
     <Compile Include="Dominio\Persistencia\ICargaDatos.cs" />
+    <Compile Include="Dominio\PlanVuelo.cs" />
     <Compile Include="PatronesExtras\Observer\IObserver.cs" />
     <Compile Include="PatronesExtras\Observer\Observable.cs" />
+    <Compile Include="Ventanas\AgregarPlanVuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\AgregarPlanVuelo.Designer.cs">
+      <DependentUpon>AgregarPlanVuelo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\ConfiguracionVariables.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +88,12 @@
     <Compile Include="Ventanas\ModelosDisponibles.Designer.cs">
       <DependentUpon>ModelosDisponibles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\PlanesDisponibles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\PlanesDisponibles.Designer.cs">
+      <DependentUpon>PlanesDisponibles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +102,9 @@
     </Compile>
     <Compile Include="Dominio\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Ventanas\AgregarPlanVuelo.resx">
+      <DependentUpon>AgregarPlanVuelo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\ConfiguracionVariables.resx">
       <DependentUpon>ConfiguracionVariables.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\ModelosDisponibles.resx">
       <DependentUpon>ModelosDisponibles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\PlanesDisponibles.resx">
+      <DependentUpon>PlanesDisponibles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

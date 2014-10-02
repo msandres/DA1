@@ -1,4 +1,5 @@
-﻿using DroneSystem.Dominio.Composite;
+﻿using DroneSystem.Dominio;
+using DroneSystem.Dominio.Composite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,10 @@ namespace DroneSystem
             this.avanceZ = 1;
         }
 
-        //tengo que hacer las funciones que determinan el avance del dron
-        //y lo hacen avanzar
+        public void IniciarVuelo(PlanVuelo plan)
+        { 
 
+        }
 
     }
 }
