@@ -8,7 +8,7 @@ namespace DroneSystem.Dominio
 {
     public class PlanVuelo:IComparable
     {
-        public string nombre;
+        private string nombre;
 
         private List<double> recorridoX;
         private List<double> recorridoY;
@@ -31,6 +31,11 @@ namespace DroneSystem.Dominio
             this.velocidadY = velY;
             this.velocidadZ = velZ;
 
+        }
+
+        public string GetNombre()
+        {
+            return this.nombre;
         }
 
         public List<double> GetRecorridoX()

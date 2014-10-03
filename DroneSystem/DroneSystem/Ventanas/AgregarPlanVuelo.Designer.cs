@@ -46,6 +46,8 @@
             this.txtbVelZ = new System.Windows.Forms.TextBox();
             this.lbVelZ = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtBNombrePlan = new System.Windows.Forms.TextBox();
+            this.lbNombre = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridCoordenadas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +123,7 @@
             this.txtbVelX.Name = "txtbVelX";
             this.txtbVelX.Size = new System.Drawing.Size(82, 20);
             this.txtbVelX.TabIndex = 4;
+            this.txtbVelX.TextChanged += new System.EventHandler(this.ValidarVelocidad);
             // 
             // lbUnidX
             // 
@@ -146,6 +149,7 @@
             this.txtbVelY.Name = "txtbVelY";
             this.txtbVelY.Size = new System.Drawing.Size(82, 20);
             this.txtbVelY.TabIndex = 7;
+            this.txtbVelY.TextChanged += new System.EventHandler(this.ValidarVelocidad);
             // 
             // lbVelY
             // 
@@ -172,6 +176,7 @@
             this.txtbVelZ.Name = "txtbVelZ";
             this.txtbVelZ.Size = new System.Drawing.Size(82, 20);
             this.txtbVelZ.TabIndex = 10;
+            this.txtbVelZ.TextChanged += new System.EventHandler(this.ValidarVelocidad);
             // 
             // lbVelZ
             // 
@@ -193,11 +198,30 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // txtBNombrePlan
+            // 
+            this.txtBNombrePlan.Location = new System.Drawing.Point(514, 274);
+            this.txtBNombrePlan.Name = "txtBNombrePlan";
+            this.txtBNombrePlan.Size = new System.Drawing.Size(146, 20);
+            this.txtBNombrePlan.TabIndex = 14;
+            // 
+            // lbNombre
+            // 
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.ForeColor = System.Drawing.Color.Blue;
+            this.lbNombre.Location = new System.Drawing.Point(511, 258);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(83, 13);
+            this.lbNombre.TabIndex = 13;
+            this.lbNombre.Text = "Nombre de Plan";
+            // 
             // AgregarPlanVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 426);
+            this.Controls.Add(this.txtBNombrePlan);
+            this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lbUnidZ);
             this.Controls.Add(this.txtbVelZ);
@@ -240,5 +264,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CoordenadaX;
         private System.Windows.Forms.DataGridViewTextBoxColumn CoordenadaY;
         private System.Windows.Forms.DataGridViewTextBoxColumn CoordenadaZ;
+        private System.Windows.Forms.TextBox txtBNombrePlan;
+        private System.Windows.Forms.Label lbNombre;
     }
 }

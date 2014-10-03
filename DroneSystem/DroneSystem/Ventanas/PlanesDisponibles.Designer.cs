@@ -40,6 +40,8 @@
             // 
             // datagridPlanes
             // 
+            this.datagridPlanes.AllowUserToAddRows = false;
+            this.datagridPlanes.AllowUserToDeleteRows = false;
             this.datagridPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombrePlanes});

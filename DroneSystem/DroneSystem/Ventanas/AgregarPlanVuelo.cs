@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DroneSystem.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,12 +22,71 @@ namespace DroneSystem.Ventanas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (ValidacionesDataGrid() && ValidarVelocidades() && ValidarNombre())
+            {
+                List<double> recX = new List<double>();
+                List<double> recY = new List<double>();
+                List<double> recZ = new List<double>();
 
+                double velX = double.Parse(txtbVelX.Text);
+                double velY = double.Parse(txtbVelY.Text);
+                double velZ = double.Parse(txtbVelZ.Text);
+
+                ListarDataGrid(recX, recY, recZ);
+
+                PlanVuelo nuevoPlan = new PlanVuelo(txtBNombrePlan.Text,recX,recY,recZ,velX,velY,velZ);
+
+                Principal p = Principal.GetInstancia();
+                p.AgregarPlanVuelo(nuevoPlan);
+                this.Close();
+            }
         }
 
-
-        private void ValidacionesDataGrid()
+        private void ListarDataGrid(List<double> coordX,List<double> coordY,List<double> coordZ)
         {
+            int idrow = 0;
+            while (idrow< datagridCoordenadas.Rows.Count-1)
+            {
+                double X = double.Parse(datagridCoordenadas.Rows[idrow].Cells[1].Value.ToString());
+                double Y = double.Parse(datagridCoordenadas.Rows[idrow].Cells[2].Value.ToString());
+                double Z = double.Parse(datagridCoordenadas.Rows[idrow].Cells[3].Value.ToString());
+                coordX.Add(X);
+                coordY.Add(Y);
+                coordZ.Add(Z);
+                idrow++;
+            }
+        }
+
+        private bool ValidacionesDataGrid()
+        {
+            bool dataGridOK = true;
+            int idRow = 0;
+            while (idRow < datagridCoordenadas.Rows.Count-1  && dataGridOK)
+            {
+                DataGridViewRow fila = datagridCoordenadas.Rows[idRow];
+                if (fila.Cells[1].Value == null || fila.Cells[2].Value == null || fila.Cells[3].Value == null)
+                {
+                    dataGridOK = false;
+                }
+                idRow++;
+            }
+
+            if (!dataGridOK)
+            {
+                Mensajes("No se puede Agregar Plan, definir bien las coordenadas de todos los puntos !!!");
+            }
+            else 
+            {
+                if (idRow < 2)
+                {
+                    dataGridOK = false;
+                    Mensajes("El Plan debe tener al menos dos puntos !!!");
+                }
+            }
+
+
+
+            return dataGridOK;
 
         }
 
@@ -34,10 +94,8 @@ namespace DroneSystem.Ventanas
         {
             if (datagridCoordenadas.CurrentCell != null && datagridCoordenadas.CurrentCell.Value!=null && datagridCoordenadas.CurrentCell.Value.ToString().Length > 0)
             {
-                int idRow = e.RowIndex;
-                int idCol = e.ColumnIndex;
-                double resultado;
-                if (!Double.TryParse(datagridCoordenadas.CurrentCell.Value.ToString(), out resultado))
+                
+                if (!ValidarDouble(datagridCoordenadas.CurrentCell.Value.ToString()))
                 {
                     MessageBox.Show("El tipo definido para la celda no es correcto !!! \n Debe ser double");
 
@@ -61,11 +119,8 @@ namespace DroneSystem.Ventanas
                     }
                     else
                     {
-                        MessageBox.Show("Completar Coordenada !!!");
-                        //datagridCoordenadas.Rows[e.RowIndex-1].Selected = true;
-                        //datagridCoordenadas.Rows.RemoveAt(e.RowIndex);
-                        //datagridCoordenadas.Refresh();
-                        //datagridCoordenadas.Refresh();
+                        Mensajes("Cuidado, quedó una coordenada sin completar !!!");
+                        AumentarNroPlan(e.RowIndex);
                     }
                 }
             }
@@ -73,7 +128,9 @@ namespace DroneSystem.Ventanas
 
         private void AumentarNroPlan(int nuevaFila)
         {
-            datagridCoordenadas.Rows[nuevaFila-1].Cells[0].Value = nuevaFila;
+            datagridCoordenadas.Rows[nuevaFila - 1].Cells[0].Value = nuevaFila;
+            datagridCoordenadas.Rows[nuevaFila - 1].Cells[0].Style.BackColor = Color.Gray;
+            
         }
 
         private bool ValidacionesVelocidad()
@@ -83,5 +140,48 @@ namespace DroneSystem.Ventanas
             return valido;
         }
 
+        private bool ValidarDouble(string cadena)
+        { 
+            double resultado;
+            return Double.TryParse(cadena, out resultado) && cadena.Length>0;
+
+        }
+
+        private void Mensajes(string mje)
+        {
+            MessageBox.Show(mje);
+        }
+
+        private void ValidarVelocidad(object sender, EventArgs e)
+        {
+            string vel = null;
+            vel = (sender as TextBox).Text;
+            
+            if (!ValidarDouble(vel) && vel.Length>0)
+            {
+                Mensajes("El tipo de la Velocidad no es el correcto !!!");
+                (sender as TextBox).Text = "";
+            }
+        }
+
+        private bool ValidarVelocidades()
+        {
+            bool valido = true;
+            valido = txtbVelX.Text.Length > 0 && txtbVelY.Text.Length > 0 && txtbVelZ.Text.Length > 0;
+            if (!valido)
+                Mensajes("Definir Velocidad en todas las coordenadas !!!");
+
+            return valido;
+        }
+
+        private bool ValidarNombre()
+        {
+            bool valido = true;
+            valido = txtBNombrePlan.Text.Length > 0;
+            if (!valido)
+                Mensajes("Definir Nombre al Plan de Vuelo !!!");
+
+            return valido;
+        }
     }
 }

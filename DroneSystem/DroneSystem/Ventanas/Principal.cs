@@ -1,4 +1,5 @@
-﻿using DroneSystem.Ventanas;
+﻿using DroneSystem.Dominio;
+using DroneSystem.Ventanas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,14 +16,41 @@ namespace DroneSystem
 {
     public partial class Principal : Form
     {
+
+        private static Principal instancia = null;  //Singleton
+
+        private List<PlanVuelo> listaPlanesVuelo = new List<PlanVuelo>();
+
         private Timer timeSec = new Timer();
 
-        public Principal()
+        private Principal()
         {
             InitializeComponent();
             timeSec.Enabled = true;
             timeSec.Interval = 1000;
             timeSec.Tick += new EventHandler(AccionTemporal);
+        }
+
+        public static Principal GetInstancia()
+        {
+            if (instancia == null)
+                instancia = new Principal();
+            return instancia;
+        }
+
+        public void AgregarPlanVuelo(PlanVuelo plan)
+        {
+            listaPlanesVuelo.Add(plan);
+        }
+
+        public void EliminarPlanVuelo(PlanVuelo plan)
+        {
+            listaPlanesVuelo.Remove(plan);
+        }
+
+        public List<PlanVuelo> GetPlanesVuelo()
+        {
+            return this.listaPlanesVuelo;
         }
 
         private void AccionTemporal(Object myObject,
@@ -60,6 +88,6 @@ namespace DroneSystem
             ventanaPlanesDisp.ShowDialog(this);
         }
 
-        
+
     }
 }
