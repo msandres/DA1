@@ -30,11 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiseniosDisponibles));
             this.dataGridDisDron = new System.Windows.Forms.DataGridView();
-            this.dataGridDisComp = new System.Windows.Forms.DataGridView();
-            this.NomDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VersionDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VersionDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridDisComp = new System.Windows.Forms.DataGridView();
             this.lbDisDron = new System.Windows.Forms.Label();
             this.lbDisComp = new System.Windows.Forms.Label();
             this.btnCerrarDisponibles = new System.Windows.Forms.Button();
@@ -44,6 +42,8 @@
             this.btnElimDisDron = new System.Windows.Forms.Button();
             this.btnModifDisDron = new System.Windows.Forms.Button();
             this.btnModifDisComp = new System.Windows.Forms.Button();
+            this.VersionDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisDron)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisComp)).BeginInit();
             this.SuspendLayout();
@@ -61,29 +61,6 @@
             this.dataGridDisDron.Size = new System.Drawing.Size(240, 244);
             this.dataGridDisDron.TabIndex = 0;
             // 
-            // dataGridDisComp
-            // 
-            this.dataGridDisComp.AllowUserToAddRows = false;
-            this.dataGridDisComp.AllowUserToDeleteRows = false;
-            this.dataGridDisComp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridDisComp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NomDisComp,
-            this.VersionDisComp});
-            this.dataGridDisComp.Location = new System.Drawing.Point(345, 38);
-            this.dataGridDisComp.Name = "dataGridDisComp";
-            this.dataGridDisComp.Size = new System.Drawing.Size(240, 244);
-            this.dataGridDisComp.TabIndex = 1;
-            // 
-            // NomDisComp
-            // 
-            this.NomDisComp.HeaderText = "Nombre";
-            this.NomDisComp.Name = "NomDisComp";
-            // 
-            // VersionDisComp
-            // 
-            this.VersionDisComp.HeaderText = "Version";
-            this.VersionDisComp.Name = "VersionDisComp";
-            // 
             // NombreDisDron
             // 
             this.NombreDisDron.HeaderText = "Nombre";
@@ -93,6 +70,19 @@
             // 
             this.VersionDisDron.HeaderText = "Version";
             this.VersionDisDron.Name = "VersionDisDron";
+            // 
+            // dataGridDisComp
+            // 
+            this.dataGridDisComp.AllowUserToAddRows = false;
+            this.dataGridDisComp.AllowUserToDeleteRows = false;
+            this.dataGridDisComp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDisComp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VersionDisComp,
+            this.NomDisComp});
+            this.dataGridDisComp.Location = new System.Drawing.Point(345, 38);
+            this.dataGridDisComp.Name = "dataGridDisComp";
+            this.dataGridDisComp.Size = new System.Drawing.Size(240, 244);
+            this.dataGridDisComp.TabIndex = 1;
             // 
             // lbDisDron
             // 
@@ -182,6 +172,16 @@
             this.btnModifDisComp.UseVisualStyleBackColor = true;
             this.btnModifDisComp.Click += new System.EventHandler(this.btnModifDisComp_Click);
             // 
+            // VersionDisComp
+            // 
+            this.VersionDisComp.HeaderText = "Marca";
+            this.VersionDisComp.Name = "VersionDisComp";
+            // 
+            // NomDisComp
+            // 
+            this.NomDisComp.HeaderText = "Nombre Modelo";
+            this.NomDisComp.Name = "NomDisComp";
+            // 
             // DiseniosDisponibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,7 +201,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DiseniosDisponibles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DiseniosDisponibles";
+            this.Text = "Diseños Disponibles";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisDron)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisComp)).EndInit();
             this.ResumeLayout(false);
@@ -215,8 +215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreDisDron;
         private System.Windows.Forms.DataGridViewTextBoxColumn VersionDisDron;
         private System.Windows.Forms.DataGridView dataGridDisComp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomDisComp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VersionDisComp;
         private System.Windows.Forms.Label lbDisDron;
         private System.Windows.Forms.Label lbDisComp;
         private System.Windows.Forms.Button btnCerrarDisponibles;
@@ -226,5 +224,7 @@
         private System.Windows.Forms.Button btnElimDisDron;
         private System.Windows.Forms.Button btnModifDisDron;
         private System.Windows.Forms.Button btnModifDisComp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VersionDisComp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomDisComp;
     }
 }

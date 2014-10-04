@@ -46,19 +46,16 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MArchivoCerrar = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dronesDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.componentesDisponblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.modelosDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.diseñosDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ejecutarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planesDeVueloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.simuladoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MAyudaAcerdaDe = new System.Windows.Forms.ToolStripMenuItem();
-            this.planesDeVueloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComponentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).BeginInit();
@@ -197,9 +194,6 @@
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dronesDisponiblesToolStripMenuItem,
-            this.componentesDisponblesToolStripMenuItem,
-            this.toolStripSeparator2,
             this.modelosDisponiblesToolStripMenuItem,
             this.toolStripSeparator3,
             this.diseñosDisponiblesToolStripMenuItem});
@@ -207,40 +201,23 @@
             this.verToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
             this.verToolStripMenuItem.Text = "Ver";
             // 
-            // dronesDisponiblesToolStripMenuItem
-            // 
-            this.dronesDisponiblesToolStripMenuItem.Name = "dronesDisponiblesToolStripMenuItem";
-            this.dronesDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.dronesDisponiblesToolStripMenuItem.Text = "Drones Disponibles";
-            // 
-            // componentesDisponblesToolStripMenuItem
-            // 
-            this.componentesDisponblesToolStripMenuItem.Name = "componentesDisponblesToolStripMenuItem";
-            this.componentesDisponblesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.componentesDisponblesToolStripMenuItem.Text = "Componentes Disponbles";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(207, 6);
-            // 
             // modelosDisponiblesToolStripMenuItem
             // 
             this.modelosDisponiblesToolStripMenuItem.Name = "modelosDisponiblesToolStripMenuItem";
-            this.modelosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.modelosDisponiblesToolStripMenuItem.Text = "Modelos Disponibles";
+            this.modelosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modelosDisponiblesToolStripMenuItem.Text = "Modelos";
             this.modelosDisponiblesToolStripMenuItem.Click += new System.EventHandler(this.modelosDisponiblesToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(207, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
             // 
             // diseñosDisponiblesToolStripMenuItem
             // 
             this.diseñosDisponiblesToolStripMenuItem.Name = "diseñosDisponiblesToolStripMenuItem";
-            this.diseñosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.diseñosDisponiblesToolStripMenuItem.Text = "Diseños Disponibles";
+            this.diseñosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.diseñosDisponiblesToolStripMenuItem.Text = "Diseños";
             this.diseñosDisponiblesToolStripMenuItem.Click += new System.EventHandler(this.diseñosDisponiblesToolStripMenuItem_Click);
             // 
             // ejecutarToolStripMenuItem
@@ -253,6 +230,18 @@
             this.ejecutarToolStripMenuItem.Name = "ejecutarToolStripMenuItem";
             this.ejecutarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.ejecutarToolStripMenuItem.Text = "Vuelo";
+            // 
+            // planesDeVueloToolStripMenuItem
+            // 
+            this.planesDeVueloToolStripMenuItem.Name = "planesDeVueloToolStripMenuItem";
+            this.planesDeVueloToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.planesDeVueloToolStripMenuItem.Text = "Planes de Vuelo";
+            this.planesDeVueloToolStripMenuItem.Click += new System.EventHandler(this.planesDeVueloToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(154, 6);
             // 
             // simuladoToolStripMenuItem
             // 
@@ -281,18 +270,6 @@
             this.MAyudaAcerdaDe.Size = new System.Drawing.Size(193, 22);
             this.MAyudaAcerdaDe.Text = "Acerca de DronSystem";
             this.MAyudaAcerdaDe.Click += new System.EventHandler(this.MAyudaAcerdaDe_Click);
-            // 
-            // planesDeVueloToolStripMenuItem
-            // 
-            this.planesDeVueloToolStripMenuItem.Name = "planesDeVueloToolStripMenuItem";
-            this.planesDeVueloToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.planesDeVueloToolStripMenuItem.Text = "Planes de Vuelo";
-            this.planesDeVueloToolStripMenuItem.Click += new System.EventHandler(this.planesDeVueloToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(154, 6);
             // 
             // Principal
             // 
@@ -325,9 +302,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem MArchivoCerrar;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dronesDisponiblesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem componentesDisponblesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem modelosDisponiblesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem diseñosDisponiblesToolStripMenuItem;

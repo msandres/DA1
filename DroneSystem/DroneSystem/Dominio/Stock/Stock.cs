@@ -1,4 +1,5 @@
-﻿using DroneSystem.PatronesExtras.Observer;
+﻿using DroneSystem.Dominio.Composite;
+using DroneSystem.PatronesExtras.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace DroneSystem.Dominio.Stock
 
         private IList<PlanVuelo> listaPlanesVuelo;
         private IList<Dron> listaDrones;
+        private IList<ComponenteAbstracto> listaComponentes;
 
         private static Stock instancia;
 
@@ -20,6 +22,7 @@ namespace DroneSystem.Dominio.Stock
         {
             listaPlanesVuelo = new List<PlanVuelo>();
             listaDrones = new List<Dron>();
+            listaComponentes = new List<ComponenteAbstracto>();
             Observers = new List<IObserver>();
 
         }
@@ -32,7 +35,6 @@ namespace DroneSystem.Dominio.Stock
             }
             return instancia;
         }
-
 
         public void AgregarPlanVuelo(PlanVuelo plan)
         {
@@ -51,14 +53,42 @@ namespace DroneSystem.Dominio.Stock
             Notify();
         }
 
+        public void AgregarComponente(ComponenteAbstracto comp)
+        {
+            listaComponentes.Add(comp);
+        }
 
+        public IList<ComponenteAbstracto> GetComponentes()
+        {
+            return listaComponentes;
+        }
 
-        public override void Agregar(IObserver observer)
+        public void EliminarComponente(ComponenteAbstracto comp)
+        {
+            listaComponentes.Remove(comp);
+        }
+
+        public void AgregarDron(Dron dron)
+        {
+            listaDrones.Add(dron);
+        }
+
+        public IList<Dron> GetDrones()
+        {
+            return listaDrones;
+        }
+
+        public void EliminarDron(Dron dron)
+        {
+            listaDrones.Remove(dron);
+        }
+
+        public override void AgregarOb(IObserver observer)
         {
             Observers.Add(observer);
         }
 
-        public override void Remover(IObserver observer)
+        public override void RemoverOb(IObserver observer)
         {
             Observers.Remove(observer);
         }

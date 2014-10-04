@@ -15,6 +15,11 @@ namespace DroneSystem.Dominio.Composite
             IList<Object> listavaloes = new List<Object>();
             return listavaloes;
         }
+        public override IList<Object> ObtenerUnidades()
+        {
+            IList<Object> listavaloes = new List<Object>();
+            return listavaloes;
+        }
         public override IList<Object> ObtenerLimiteMaximo()
         {
             IList<Object> listavaloes = new List<Object>();
@@ -30,6 +35,11 @@ namespace DroneSystem.Dominio.Composite
         {
             IList<Object> listavaloes = new List<Object>();
             return listavaloes;
+        }
+
+        protected override void CalcularValor(double X, double Y, double Z)
+        {
+            throw new NotImplementedException();
         }
 
         public override bool Alarmado()

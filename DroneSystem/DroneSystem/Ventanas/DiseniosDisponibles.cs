@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DroneSystem.PatronesExtras.Observer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,29 @@ using System.Windows.Forms;
 
 namespace DroneSystem.Ventanas
 {
-    public partial class DiseniosDisponibles : Form
+    public partial class DiseniosDisponibles : Form,IObserver
     {
         public DiseniosDisponibles()
         {
             InitializeComponent();
+            Actualizar();
+        }
+
+        public void Actualizar()
+        {
+            dataGridDisDron.Rows.Clear();
+            dataGridDisDron.Refresh();
+            dataGridDisComp.Rows.Clear();
+            dataGridDisComp.Refresh();
+           
+
+            //foreach (PlanVuelo plan in Fachada.GetInstancia().GetPlanesDeVuelo())
+            //{
+            //    datagridPlanes.Rows.Add(plan.GetNombre());
+            //}
+
+            dataGridDisDron.Refresh();
+            dataGridDisComp.Refresh();
         }
 
         private void btnCerrarDisponibles_Click(object sender, EventArgs e)

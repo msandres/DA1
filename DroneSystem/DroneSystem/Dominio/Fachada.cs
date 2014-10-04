@@ -26,12 +26,12 @@ namespace DroneSystem.Dominio
 
         public void AagregarObserverStock(IObserver observerStock)
         {
-            ((Observable)stock).Agregar(observerStock);
+            ((Observable)stock).AgregarOb(observerStock);
         }
 
         public void RemoverObserverStock(IObserver observerStock)
         {
-            ((Observable)stock).Remover(observerStock);
+            ((Observable)stock).RemoverOb(observerStock);
         }
         
         public void CrearPlanDeVuelo(string nombrePlan ,List<double> recX,List<double> recY,List<double> recZ,

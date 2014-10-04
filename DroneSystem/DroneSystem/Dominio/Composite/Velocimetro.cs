@@ -17,11 +17,17 @@ namespace DroneSystem.Dominio.Composite
         {
             this.Marca = marca;
             this.Modelo = modelo;
-            IdComponenteClase++;
-            this.IdComponente = IdComponenteClase;
+            //IdComponenteClase++;
+            //this.IdComponente = IdComponenteClase;
         }
 
         public override IList<Object> ObtenerValorActual()
+        {
+            IList<Object> listavaloes = new List<Object>();
+            return listavaloes;
+        }
+
+        public override IList<Object> ObtenerUnidades()
         {
             IList<Object> listavaloes = new List<Object>();
             return listavaloes;
@@ -43,6 +49,11 @@ namespace DroneSystem.Dominio.Composite
         {
             IList<Object> listavaloes = new List<Object>();
             return listavaloes;
+        }
+
+        protected override void CalcularValor(double X, double Y, double Z)
+        {
+            throw new NotImplementedException();
         }
 
         public override bool Alarmado()

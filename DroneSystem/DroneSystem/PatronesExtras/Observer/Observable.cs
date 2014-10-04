@@ -9,8 +9,8 @@ namespace DroneSystem.PatronesExtras.Observer
     public abstract class Observable
     {
         public IList<IObserver> Observers;
-        public abstract void Agregar(IObserver observer);
-        public abstract void Remover(IObserver observer);
+        public abstract void AgregarOb(IObserver observer);
+        public abstract void RemoverOb(IObserver observer);
         public void Notify()
         {
             foreach (IObserver observer in Observers)
