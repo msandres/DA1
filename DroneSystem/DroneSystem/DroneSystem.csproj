@@ -52,10 +52,14 @@
     <Compile Include="Dominio\Composite\Termometro.cs" />
     <Compile Include="Dominio\Composite\Velocimetro.cs" />
     <Compile Include="Dominio\Dron.cs" />
+    <Compile Include="Dominio\Fachada.cs" />
+    <Compile Include="Dominio\Stock\IStock.cs" />
     <Compile Include="Dominio\Persistencia\CargaDatosBaseSQL.cs" />
     <Compile Include="Dominio\Persistencia\CargaDatosManual.cs" />
     <Compile Include="Dominio\Persistencia\ICargaDatos.cs" />
     <Compile Include="Dominio\PlanVuelo.cs" />
+    <Compile Include="Dominio\Reporte.cs" />
+    <Compile Include="Dominio\Stock\Stock.cs" />
     <Compile Include="PatronesExtras\Observer\IObserver.cs" />
     <Compile Include="PatronesExtras\Observer\Observable.cs" />
     <Compile Include="Ventanas\AgregarPlanVuelo.cs">

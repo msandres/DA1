@@ -1,4 +1,5 @@
 ﻿using DroneSystem.Dominio;
+using DroneSystem.PatronesExtras.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,10 +35,9 @@ namespace DroneSystem.Ventanas
 
                 ListarDataGrid(recX, recY, recZ);
 
-                PlanVuelo nuevoPlan = new PlanVuelo(txtBNombrePlan.Text,recX,recY,recZ,velX,velY,velZ);
+                //que la fachada se encargue de crear el plan
+                Fachada.GetInstancia().CrearPlanDeVuelo(txtBNombrePlan.Text, recX, recY, recZ, velX, velY, velZ);
 
-                Principal p = Principal.GetInstancia();
-                p.AgregarPlanVuelo(nuevoPlan);
                 this.Close();
             }
         }
@@ -83,11 +83,7 @@ namespace DroneSystem.Ventanas
                     Mensajes("El Plan debe tener al menos dos puntos !!!");
                 }
             }
-
-
-
             return dataGridOK;
-
         }
 
         private void ValidarCeldaDataGrid(object sender, DataGridViewCellEventArgs e)
@@ -130,6 +126,11 @@ namespace DroneSystem.Ventanas
         {
             datagridCoordenadas.Rows[nuevaFila - 1].Cells[0].Value = nuevaFila;
             datagridCoordenadas.Rows[nuevaFila - 1].Cells[0].Style.BackColor = Color.Gray;
+
+            if (nuevaFila == 1)
+                datagridCoordenadas.CurrentCell= datagridCoordenadas.Rows[nuevaFila - 1].Cells[1];
+            
+            
             
         }
 

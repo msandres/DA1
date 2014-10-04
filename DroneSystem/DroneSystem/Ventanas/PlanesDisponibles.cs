@@ -1,4 +1,5 @@
 ﻿using DroneSystem.Dominio;
+using DroneSystem.PatronesExtras.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,27 +12,30 @@ using System.Windows.Forms;
 
 namespace DroneSystem.Ventanas
 {
-    public partial class PlanesDisponibles : Form
+    public partial class PlanesDisponibles : Form, IObserver
     {
         public PlanesDisponibles()
         {
             InitializeComponent();
-            RecargarListadePlanes();
+            Actualizar();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            Fachada.GetInstancia().AagregarObserverStock(this);
+            
             AgregarPlanVuelo ventanaAgregarP = new AgregarPlanVuelo();
             ventanaAgregarP.ShowDialog(this);
-            RecargarListadePlanes();
+
+            Fachada.GetInstancia().RemoverObserverStock(this);
+
         }
 
-        private void RecargarListadePlanes()
+        public void Actualizar()
         {
             datagridPlanes.Rows.Clear();
             datagridPlanes.Refresh();
-            Principal p = Principal.GetInstancia();
-            foreach (PlanVuelo plan in p.GetPlanesVuelo())
+            foreach (PlanVuelo plan in Fachada.GetInstancia().GetPlanesDeVuelo())
             {
                 datagridPlanes.Rows.Add(plan.GetNombre());
             }
@@ -47,7 +51,6 @@ namespace DroneSystem.Ventanas
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             EliminarFilasDataGrid(datagridPlanes);
-            RecargarListadePlanes();
         }
 
         //le paso un datagridview y elimino los registros seleccionados
@@ -75,11 +78,14 @@ namespace DroneSystem.Ventanas
                     idDGV++;
                 }
 
-                Principal p = Principal.GetInstancia();
+                Fachada.GetInstancia().AagregarObserverStock(this);
+
                 foreach (int id in seleccion)
                 {
-                    p.EliminarPlanVuelo(p.GetPlanesVuelo()[id]);
+                    Fachada.GetInstancia().EliminarPlanDeVuelo(Fachada.GetInstancia().GetPlanesDeVuelo()[id]);
                 }
+
+                Fachada.GetInstancia().RemoverObserverStock(this);
             }
         }
     }

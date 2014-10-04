@@ -1,4 +1,5 @@
 ﻿using DroneSystem.Dominio;
+using DroneSystem.PatronesExtras.Observer;
 using DroneSystem.Ventanas;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,12 @@ using System.Windows.Forms;
 
 namespace DroneSystem
 {
-    public partial class Principal : Form
+    public partial class Principal : Form,IObserver
     {
-
-        private static Principal instancia = null;  //Singleton
-
-        private List<PlanVuelo> listaPlanesVuelo = new List<PlanVuelo>();
 
         private Timer timeSec = new Timer();
 
-        private Principal()
+        public Principal()
         {
             InitializeComponent();
             timeSec.Enabled = true;
@@ -31,27 +28,11 @@ namespace DroneSystem
             timeSec.Tick += new EventHandler(AccionTemporal);
         }
 
-        public static Principal GetInstancia()
-        {
-            if (instancia == null)
-                instancia = new Principal();
-            return instancia;
+        public void Actualizar()
+        { 
+
         }
 
-        public void AgregarPlanVuelo(PlanVuelo plan)
-        {
-            listaPlanesVuelo.Add(plan);
-        }
-
-        public void EliminarPlanVuelo(PlanVuelo plan)
-        {
-            listaPlanesVuelo.Remove(plan);
-        }
-
-        public List<PlanVuelo> GetPlanesVuelo()
-        {
-            return this.listaPlanesVuelo;
-        }
 
         private void AccionTemporal(Object myObject,
                                             EventArgs myEventArgs)

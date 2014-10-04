@@ -16,7 +16,7 @@ namespace DroneSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Principal.GetInstancia());
+            Application.Run(new Principal());
         }
     }
 }
