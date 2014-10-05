@@ -51,13 +51,6 @@
             // cBTipos
             // 
             this.cBTipos.FormattingEnabled = true;
-            this.cBTipos.Items.AddRange(new object[] {
-            "Altímetro",
-            "Barómetro",
-            "Componente Compuesto",
-            "GPS",
-            "Termómetro",
-            "Velocímetro"});
             this.cBTipos.Location = new System.Drawing.Point(12, 51);
             this.cBTipos.Name = "cBTipos";
             this.cBTipos.Size = new System.Drawing.Size(121, 21);

@@ -18,16 +18,25 @@ namespace DroneSystem.Ventanas
         public DefinicionComponente()
         {
             InitializeComponent();
+            LlenarCombo();
             dataGridDefinicion.Visible = false;
             txtBCantidad.Enabled = false;
 
+        }
+
+        private void LlenarCombo()
+        {
+            foreach (string tipo in Fachada.GetInstancia().TiposComponente())
+            {
+                cBTipos.Items.Add(tipo);
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             List<object> parametrosConf = new List<object>();
 
-            parametrosConf.Add(cBTipos.SelectedText);
+            parametrosConf.Add(cBTipos.SelectedItem);
 
             int idRow = 0;
 
@@ -59,17 +68,23 @@ namespace DroneSystem.Ventanas
         {
             dataGridDefinicion.Columns.Clear();
             int idCol = 0;
-            foreach (string cabezal in datosCabezales)
+            if (datosCabezales.Count>0)
             {
-                string nombre = cabezal.Split(':')[0];
-                Type tipoDato = Type.GetType("System."+cabezal.Split(':')[1].ToString());
-                dataGridDefinicion.Columns.Add(nombre, nombre);
-                dataGridDefinicion.Columns[idCol].ValueType = tipoDato;
-                idCol++;
+                foreach (string cabezal in datosCabezales)
+                {
+                    string nombre = cabezal.Split(':')[0];
+                    Type tipoDato = Type.GetType("System." + cabezal.Split(':')[1].ToString());
+                    dataGridDefinicion.Columns.Add(nombre, nombre);
+                    dataGridDefinicion.Columns[idCol].ValueType = tipoDato;
+                    idCol++;
+                }
+                dataGridDefinicion.Visible = true;
+                dataGridDefinicion.Enabled = false;
             }
-
-            dataGridDefinicion.Visible = true;
-            dataGridDefinicion.Enabled = false;
+            else
+            {
+                MessageBox.Show("No existen piezas para hacer un Complejo !!!");
+            }
         }
 
         private void txtBCantidad_TextChanged(object sender, EventArgs e)

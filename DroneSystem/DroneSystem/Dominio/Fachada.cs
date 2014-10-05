@@ -34,6 +34,8 @@ namespace DroneSystem.Dominio
                     break;
                 case "Barómetro": parametros = new Barometro().ObtenerParametrizacion();
                     break;
+                case "Componente Compuesto": parametros = GetMarcaModeloComponentes();
+                    break;
                 case "GPS": parametros = new Gps().ObtenerParametrizacion();
                     break;
                 case "Termómetro": parametros = new Termometro().ObtenerParametrizacion();
@@ -77,12 +79,71 @@ namespace DroneSystem.Dominio
         public void CrearComponente(IList<object> configuracion)
             //string marca,string modelo,IList<string> unidades,IList<double> max,IList<double> min, IList<double> precision)
         {
+            ComponenteAbstracto comp=null;
             string tipoComponente = configuracion[0].ToString();
+            switch (tipoComponente)
+            {
+                case "Altímetro": //parametros = new Altimetro().ObtenerParametrizacion();
+                    break;
+                case "Barómetro": //parametros = new Barometro().ObtenerParametrizacion();
+                    break;
+                case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
+                    break;
+                case "GPS": //parametros = new Gps().ObtenerParametrizacion();
+                    break;
+                case "Termómetro": comp = CrearComponenteConcreto(configuracion);
+                    break;
+                case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
+                    break;
+            }
             //ComponenteAbstracto cmp = new Termometro(marca,modelo,unidades,max,min,precision);
-           // stock.AgregarComponente(cmp);
+            stock.AgregarComponente(comp);
+        }
+
+        private ComponenteAbstracto CrearComponenteConcreto(IList<object> configuracion)
+        {
+            ComponenteAbstracto c = null;
+            List<int> listaIdsLista = null; //pongo que parametro va en que lista de paramaetros, sobre todo para las piezas con multiples variables, gps por ejemplo
+            List<List<object>> listaListasPar = new List<List<object>>();
+            string tipoComponente = configuracion[0].ToString();
+            configuracion.RemoveAt(0);
+            switch (tipoComponente)
+            {
+                case "Altímetro": //parametros = new Altimetro().ObtenerParametrizacion();
+                    break;
+                case "Barómetro": //parametros = new Barometro().ObtenerParametrizacion();
+                    break;
+                case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
+                    break;
+                case "GPS": //parametros = new Gps().ObtenerParametrizacion();
+                    break;
+                case "Termómetro": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 6 });
+                    break;
+                case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
+                    break;
+            }
+
+            int idConf = 0;
+            while (idConf< configuracion.Count)
+            {
+                int idParam = listaIdsLista[idConf];
+
+                if (listaListasPar.Count > idParam)
+                {
+
+                }
+                else 
+                { 
+
+                }
+               
+                idConf++;
+            }
+
 
             
 
+            return c;
         }
 
         public IList<ComponenteAbstracto> GetComponentes()
@@ -90,5 +151,31 @@ namespace DroneSystem.Dominio
             return stock.GetComponentes();
         }
 
+        //Se usa para las ventanas
+        public IList<string> TiposComponente()
+        { 
+           List<string> listaTipos = new List<string>();
+           listaTipos.Add("Altímetro");
+           listaTipos.Add("Barómetro");
+           listaTipos.Add("Componente Compuesto");
+           listaTipos.Add("GPS");
+           listaTipos.Add("Termómetro");
+           listaTipos.Add("Velocímetro");
+
+            return listaTipos;
+        }
+
+        //es usado para las ventanas
+        public IList<string> GetMarcaModeloComponentes()
+        {
+            List<string> marcamodelo = new List<string>();
+
+            foreach (ComponenteAbstracto cmp in GetComponentes())
+            {
+                marcamodelo.Add(cmp.Marca + ":" + cmp.Modelo);
+            }
+
+            return marcamodelo;
+        }
     }
 }

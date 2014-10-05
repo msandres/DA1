@@ -48,7 +48,7 @@ namespace DroneSystem
 
         private void MAyudaAcerdaDe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Desarrollado por: \n\n Andrés Martínez (168474) \n Daniel Ferrari (?????)", "DronSystem - Obligatorio Diseño de Aplicaciones 2014");
+            MessageBox.Show("Desarrollado por: \n\n Andrés Martínez (168474) \n Daniel Ferrari (161390)", "DronSystem - Obligatorio Diseño de Aplicaciones 2014");
         }
 
         private void diseñosDisponiblesToolStripMenuItem_Click(object sender, EventArgs e)
