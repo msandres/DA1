@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiseniosDisponibles));
             this.dataGridDisDron = new System.Windows.Forms.DataGridView();
-            this.NombreDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VersionDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridDisComp = new System.Windows.Forms.DataGridView();
             this.VersionDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +42,9 @@
             this.btnElimDisDron = new System.Windows.Forms.Button();
             this.btnModifDisDron = new System.Windows.Forms.Button();
             this.btnModifDisComp = new System.Windows.Forms.Button();
+            this.NombreDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VersionDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisDron)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisComp)).BeginInit();
             this.SuspendLayout();
@@ -55,21 +56,12 @@
             this.dataGridDisDron.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridDisDron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreDisDron,
+            this.NroSerie,
             this.VersionDisDron});
             this.dataGridDisDron.Location = new System.Drawing.Point(12, 38);
             this.dataGridDisDron.Name = "dataGridDisDron";
             this.dataGridDisDron.Size = new System.Drawing.Size(240, 244);
             this.dataGridDisDron.TabIndex = 0;
-            // 
-            // NombreDisDron
-            // 
-            this.NombreDisDron.HeaderText = "Nombre";
-            this.NombreDisDron.Name = "NombreDisDron";
-            // 
-            // VersionDisDron
-            // 
-            this.VersionDisDron.HeaderText = "Version";
-            this.VersionDisDron.Name = "VersionDisDron";
             // 
             // dataGridDisComp
             // 
@@ -182,6 +174,21 @@
             this.btnModifDisComp.UseVisualStyleBackColor = true;
             this.btnModifDisComp.Click += new System.EventHandler(this.btnModifDisComp_Click);
             // 
+            // NombreDisDron
+            // 
+            this.NombreDisDron.HeaderText = "Nombre";
+            this.NombreDisDron.Name = "NombreDisDron";
+            // 
+            // NroSerie
+            // 
+            this.NroSerie.HeaderText = "Nro Serie";
+            this.NroSerie.Name = "NroSerie";
+            // 
+            // VersionDisDron
+            // 
+            this.VersionDisDron.HeaderText = "Version";
+            this.VersionDisDron.Name = "VersionDisDron";
+            // 
             // DiseniosDisponibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,8 +219,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridDisDron;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreDisDron;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VersionDisDron;
         private System.Windows.Forms.DataGridView dataGridDisComp;
         private System.Windows.Forms.Label lbDisDron;
         private System.Windows.Forms.Label lbDisComp;
@@ -226,5 +231,8 @@
         private System.Windows.Forms.Button btnModifDisComp;
         private System.Windows.Forms.DataGridViewTextBoxColumn VersionDisComp;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomDisComp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreDisDron;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NroSerie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VersionDisDron;
     }
 }

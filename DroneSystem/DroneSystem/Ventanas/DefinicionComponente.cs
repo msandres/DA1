@@ -57,7 +57,8 @@ namespace DroneSystem.Ventanas
 
                 idRow++;
             }
-            MessageBox.Show("Falta Implementar");
+            MessageBox.Show("Se agregó componente");
+            this.Close();
         }
 
         private void cBTipos_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,13 +75,30 @@ namespace DroneSystem.Ventanas
             int idCol = 0;
             if (datosCabezales.Count>0)
             {
-                foreach (string cabezal in datosCabezales)
+                if (cBTipos.SelectedItem.ToString().Contains("Componente"))
                 {
-                    string nombre = cabezal.Split(':')[0];
-                    Type tipoDato = Type.GetType("System." + cabezal.Split(':')[1].ToString());
-                    dataGridDefinicion.Columns.Add(nombre, nombre);
-                    dataGridDefinicion.Columns[idCol].ValueType = tipoDato;
-                    idCol++;
+                    dataGridDefinicion.Columns.Add("Marca", "Marca");
+                    dataGridDefinicion.Columns.Add("Modelo", "Modelo");
+
+                    foreach (string cabezal in datosCabezales)
+                    {
+                        string marca = cabezal.Split(':')[0];
+                        string modelo = cabezal.Split(':')[1];
+                        dataGridDefinicion.Rows.Add(marca, modelo);
+                    }
+
+                }
+                else
+                {
+
+                    foreach (string cabezal in datosCabezales)
+                    {
+                        string nombre = cabezal.Split(':')[0];
+                        Type tipoDato = Type.GetType("System." + cabezal.Split(':')[1].ToString());
+                        dataGridDefinicion.Columns.Add(nombre, nombre);
+                        dataGridDefinicion.Columns[idCol].ValueType = tipoDato;
+                        idCol++;
+                    }
                 }
                 dataGridDefinicion.Visible = true;
                 dataGridDefinicion.Enabled = false;
@@ -104,15 +122,24 @@ namespace DroneSystem.Ventanas
 
         private void AgregarFilas(int numeroFilas)
         {
-            if (numeroFilas <= 0)
+            if (!cBTipos.SelectedItem.ToString().Contains("Componente"))
             {
-                dataGridDefinicion.Rows.Clear();
-                dataGridDefinicion.Enabled = false;
+                if (numeroFilas <= 0)
+                {
+                    dataGridDefinicion.Rows.Clear();
+                    dataGridDefinicion.Enabled = false;
+                }
+                else
+                {
+                    dataGridDefinicion.Rows.Clear();
+                    dataGridDefinicion.Rows.Add(numeroFilas);
+                    dataGridDefinicion.Enabled = true;
+                }
             }
             else
             {
-                dataGridDefinicion.Rows.Add(numeroFilas);
                 dataGridDefinicion.Enabled = true;
+                dataGridDefinicion.ReadOnly = true;
             }
             dataGridDefinicion.Refresh();
         }

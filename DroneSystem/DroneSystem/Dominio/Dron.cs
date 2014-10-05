@@ -54,6 +54,25 @@ namespace DroneSystem
 
         }
 
+        public void AgregarComponentes(List<ComponenteAbstracto> listaComp)
+        {
+            this.listcomponentes = listaComp;
+            foreach (ComponenteAbstracto cmp in this.listcomponentes)
+            {
+                AgregarOb(cmp);
+            }
+        }
+
+        public string GetNombre()
+        {
+            return this.Nombre;
+        }
+
+        public int GetNroSerie()
+        {
+            return this.serieDron;
+        }
+
         public double UbicacionX()
         {
             return this.X;

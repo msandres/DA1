@@ -18,3 +18,5 @@ D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.pdb
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.exe
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.pdb
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csprojResolveAssemblyReference.cache
+D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.DefinicionDisDron.resources
+D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.VueloReal.resources

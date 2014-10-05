@@ -33,10 +33,10 @@ namespace DroneSystem.Ventanas
                 dataGridDisComp.Rows.Add(compAbs.Marca,compAbs.Modelo);
             }
 
-            //foreach (PlanVuelo plan in Fachada.GetInstancia().GetPlanesDeVuelo())
-            //{
-            //    datagridPlanes.Rows.Add(plan.GetNombre());
-            //}
+            foreach (Dron dron in Fachada.GetInstancia().GetDrones())
+            {
+                dataGridDisDron.Rows.Add(dron.GetNombre(),dron.GetNroSerie()); 
+            }
 
             dataGridDisDron.Refresh();
             dataGridDisComp.Refresh();
@@ -50,7 +50,12 @@ namespace DroneSystem.Ventanas
 
         private void bntAgregarDisDron_Click(object sender, EventArgs e)
         {
-            AgregarFilasDataGrid(dataGridDisDron);
+            Fachada.GetInstancia().AagregarObserverStock(this);
+
+            DefinicionDisDron vent = new DefinicionDisDron();
+            vent.ShowDialog(this);
+
+            Fachada.GetInstancia().RemoverObserverStock(this); 
         }
 
         private void btnModifDisDron_Click(object sender, EventArgs e)

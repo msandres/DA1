@@ -1,4 +1,6 @@
 ﻿using DroneSystem.Dominio;
+using DroneSystem.Dominio.Composite;
+using DroneSystem.Dominio.Persistencia;
 using DroneSystem.PatronesExtras.Observer;
 using DroneSystem.Ventanas;
 using System;
@@ -23,13 +25,33 @@ namespace DroneSystem
         public Principal()
         {
             InitializeComponent();
+            Fachada.GetInstancia().AagregarObserverStock(this);
             timeSec.Enabled = true;
             timeSec.Interval = 1000;
             timeSec.Tick += new EventHandler(AccionTemporal);
         }
 
         public void Actualizar()
-        { 
+        {
+            dataGridDrones.Rows.Clear();
+            dataGridDrones.Refresh();
+            dataGridComponentes.Rows.Clear();
+            dataGridComponentes.Refresh();
+
+            foreach (ComponenteAbstracto compAbs in Fachada.GetInstancia().GetComponentes())
+            {
+                dataGridComponentes.Rows.Add(compAbs.Marca, compAbs.Modelo);
+            }
+
+            foreach (Dron dron in Fachada.GetInstancia().GetDrones())
+            {
+                dataGridDrones.Rows.Add(dron.GetNombre(), dron.GetNroSerie());
+            }
+
+
+            dataGridDrones.Refresh();
+            dataGridComponentes.Refresh();
+
 
         }
 
@@ -67,6 +89,18 @@ namespace DroneSystem
         {
             PlanesDisponibles ventanaPlanesDisp = new PlanesDisponibles();
             ventanaPlanesDisp.ShowDialog(this);
+        }
+
+        private void cargarDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICargaDatos cargaD = new CargaDatosManual();
+            cargaD.Cargar();
+        }
+
+        private void realToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VueloReal vent = new VueloReal();
+            vent.ShowDialog(this);
         }
 
 

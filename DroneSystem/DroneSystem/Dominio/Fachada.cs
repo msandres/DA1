@@ -76,6 +76,27 @@ namespace DroneSystem.Dominio
             stock.EliminarPlanVuelo(plan);
         }
 
+        public void CrearDron(string nombre,string color,string control,List<int> idComponentes)
+        {
+            List<ComponenteAbstracto> componentesDron = new List<ComponenteAbstracto>();
+
+            foreach(int id in idComponentes)
+            {
+                componentesDron.Add(GetComponentes()[id]);
+                stock.EliminarComponente(GetComponentes()[id]);
+            }
+
+            Dron nuevoDron = new Dron(nombre, color, control);
+            nuevoDron.AgregarComponentes(componentesDron);
+            stock.AgregarDron(nuevoDron);
+
+        }
+
+        public IList<Dron> GetDrones()
+        {
+            return stock.GetDrones();
+        }
+
         public void CrearComponente(IList<object> configuracion)
             //string marca,string modelo,IList<string> unidades,IList<double> max,IList<double> min, IList<double> precision)
         {
@@ -184,7 +205,6 @@ namespace DroneSystem.Dominio
             {
                 marcamodelo.Add(cmp.Marca + ":" + cmp.Modelo);
             }
-
             return marcamodelo;
         }
     }

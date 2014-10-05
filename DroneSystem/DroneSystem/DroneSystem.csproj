@@ -80,6 +80,12 @@
     <Compile Include="Ventanas\ControlDeVuelo.Designer.cs">
       <DependentUpon>ControlDeVuelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\DefinicionDisDron.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\DefinicionDisDron.Designer.cs">
+      <DependentUpon>DefinicionDisDron.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\DefinicionComponente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="Dominio\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventanas\VueloReal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventanas\VueloReal.Designer.cs">
+      <DependentUpon>VueloReal.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Ventanas\AgregarPlanVuelo.resx">
       <DependentUpon>AgregarPlanVuelo.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\ControlDeVuelo.resx">
       <DependentUpon>ControlDeVuelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventanas\DefinicionDisDron.resx">
+      <DependentUpon>DefinicionDisDron.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventanas\DefinicionComponente.resx">
       <DependentUpon>DefinicionComponente.cs</DependentUpon>
@@ -145,6 +160,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ventanas\VueloReal.resx">
+      <DependentUpon>VueloReal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
