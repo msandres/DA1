@@ -56,6 +56,7 @@ namespace DroneSystem.Dominio.Stock
         public void AgregarComponente(ComponenteAbstracto comp)
         {
             listaComponentes.Add(comp);
+            Notify();
         }
 
         public IList<ComponenteAbstracto> GetComponentes()
@@ -71,6 +72,7 @@ namespace DroneSystem.Dominio.Stock
         public void AgregarDron(Dron dron)
         {
             listaDrones.Add(dron);
+            Notify();
         }
 
         public IList<Dron> GetDrones()
@@ -81,6 +83,7 @@ namespace DroneSystem.Dominio.Stock
         public void EliminarDron(Dron dron)
         {
             listaDrones.Remove(dron);
+            Notify();
         }
 
         public override void AgregarOb(IObserver observer)

@@ -49,6 +49,12 @@ namespace DroneSystem.Dominio.Composite
             return listavaloes;
         }
 
+        public override IList<string> ObtenerParametrizacion()
+        {
+            IList<string> formacion = new List<string>();
+            return formacion;
+        }
+
         protected override void CalcularValor(double X, double Y, double Z)
         {
             throw new NotImplementedException();

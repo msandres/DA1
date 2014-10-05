@@ -176,18 +176,18 @@
             // cargarDatosToolStripMenuItem
             // 
             this.cargarDatosToolStripMenuItem.Name = "cargarDatosToolStripMenuItem";
-            this.cargarDatosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.cargarDatosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargarDatosToolStripMenuItem.Text = "Cargar Datos";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // MArchivoCerrar
             // 
             this.MArchivoCerrar.Name = "MArchivoCerrar";
-            this.MArchivoCerrar.Size = new System.Drawing.Size(142, 22);
+            this.MArchivoCerrar.Size = new System.Drawing.Size(152, 22);
             this.MArchivoCerrar.Text = "Cerrar";
             this.MArchivoCerrar.Click += new System.EventHandler(this.MArchivoCerrar_Click);
             // 
@@ -204,20 +204,20 @@
             // modelosDisponiblesToolStripMenuItem
             // 
             this.modelosDisponiblesToolStripMenuItem.Name = "modelosDisponiblesToolStripMenuItem";
-            this.modelosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modelosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.modelosDisponiblesToolStripMenuItem.Text = "Modelos";
             this.modelosDisponiblesToolStripMenuItem.Click += new System.EventHandler(this.modelosDisponiblesToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(199, 6);
             // 
             // diseñosDisponiblesToolStripMenuItem
             // 
             this.diseñosDisponiblesToolStripMenuItem.Name = "diseñosDisponiblesToolStripMenuItem";
-            this.diseñosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.diseñosDisponiblesToolStripMenuItem.Text = "Diseños";
+            this.diseñosDisponiblesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.diseñosDisponiblesToolStripMenuItem.Text = "Diseños y Componentes";
             this.diseñosDisponiblesToolStripMenuItem.Click += new System.EventHandler(this.diseñosDisponiblesToolStripMenuItem_Click);
             // 
             // ejecutarToolStripMenuItem

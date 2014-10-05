@@ -1,4 +1,6 @@
-﻿using DroneSystem.PatronesExtras.Observer;
+﻿using DroneSystem.Dominio;
+using DroneSystem.Dominio.Composite;
+using DroneSystem.PatronesExtras.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +27,11 @@ namespace DroneSystem.Ventanas
             dataGridDisDron.Refresh();
             dataGridDisComp.Rows.Clear();
             dataGridDisComp.Refresh();
-           
+
+            foreach (ComponenteAbstracto compAbs in Fachada.GetInstancia().GetComponentes())
+            {
+                dataGridDisComp.Rows.Add(compAbs.Marca,compAbs.Modelo);
+            }
 
             //foreach (PlanVuelo plan in Fachada.GetInstancia().GetPlanesDeVuelo())
             //{
@@ -34,6 +40,7 @@ namespace DroneSystem.Ventanas
 
             dataGridDisDron.Refresh();
             dataGridDisComp.Refresh();
+
         }
 
         private void btnCerrarDisponibles_Click(object sender, EventArgs e)
@@ -59,7 +66,14 @@ namespace DroneSystem.Ventanas
 
         private void btnAgregarDisComp_Click(object sender, EventArgs e)
         {
-            AgregarFilasDataGrid(dataGridDisComp);
+            Fachada.GetInstancia().AagregarObserverStock(this); 
+
+            DefinicionComponente vent = new DefinicionComponente();
+            vent.ShowDialog(this);
+
+            Fachada.GetInstancia().RemoverObserverStock(this); 
+  
+
         }
 
         private void btnModifDisComp_Click(object sender, EventArgs e)

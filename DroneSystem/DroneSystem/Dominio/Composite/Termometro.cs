@@ -22,6 +22,12 @@ namespace DroneSystem.Dominio.Composite
             this.valorMax = max;
             this.valorMin = min;
             this.valorPrecision = precision;
+
+         }
+
+        public Termometro()
+        { 
+
         }
 
         public override IList<Object> ObtenerValorActual()
@@ -52,7 +58,21 @@ namespace DroneSystem.Dominio.Composite
             IList<object> listaRet = this.valorPrecision.Select(o => (object)o).ToList();
             return listaRet;
         }
-        
+
+        public override IList<string> ObtenerParametrizacion()
+        {
+            IList<string> formacion = new List<string>();
+
+            formacion.Add("Marca:tipo");
+            formacion.Add("Modelo:tipo");
+            formacion.Add("Unidad:String");
+            formacion.Add("Máximo:Double");
+            formacion.Add("Mínimo:Double");
+            formacion.Add("Precision:Double");
+
+            return formacion;
+        }
+
         protected override void CalcularValor(double X, double Y, double Z)
         {
             List<double> nuevoValor = new List<double>();

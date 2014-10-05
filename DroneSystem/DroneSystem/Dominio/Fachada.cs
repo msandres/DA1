@@ -1,4 +1,5 @@
-﻿using DroneSystem.Dominio.Stock;
+﻿using DroneSystem.Dominio.Composite;
+using DroneSystem.Dominio.Stock;
 using DroneSystem.PatronesExtras.Observer;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,26 @@ namespace DroneSystem.Dominio
         {
             if (instancia == null) instancia = new Fachada();
             return instancia;
+        }
+
+        public IList<string> ObtenerParametros(string tipo)
+        {
+            IList<string> parametros = null;
+            switch (tipo)
+            {
+                case "Altímetro": parametros = new Altimetro().ObtenerParametrizacion();
+                    break;
+                case "Barómetro": parametros = new Barometro().ObtenerParametrizacion();
+                    break;
+                case "GPS": parametros = new Gps().ObtenerParametrizacion();
+                    break;
+                case "Termómetro": parametros = new Termometro().ObtenerParametrizacion();
+                    break;
+                case "Velocímetro": parametros = new Velocimetro().ObtenerParametrizacion();
+                    break;
+            }
+
+            return parametros;
         }
 
         public void AagregarObserverStock(IObserver observerStock)
@@ -51,6 +72,22 @@ namespace DroneSystem.Dominio
         public void EliminarPlanDeVuelo(PlanVuelo plan)
         {
             stock.EliminarPlanVuelo(plan);
+        }
+
+        public void CrearComponente(IList<object> configuracion)
+            //string marca,string modelo,IList<string> unidades,IList<double> max,IList<double> min, IList<double> precision)
+        {
+            string tipoComponente = configuracion[0].ToString();
+            //ComponenteAbstracto cmp = new Termometro(marca,modelo,unidades,max,min,precision);
+           // stock.AgregarComponente(cmp);
+
+            
+
+        }
+
+        public IList<ComponenteAbstracto> GetComponentes()
+        {
+            return stock.GetComponentes();
         }
 
     }

@@ -9,6 +9,13 @@ namespace DroneSystem.Dominio.Composite
     public class Barometro:ComponenteAbstracto
     {
 
+        public Barometro(String marca)
+        {
+        }
+
+        public Barometro()
+        {         
+        }
 
         public override IList<Object> ObtenerValorActual()
         {
@@ -36,6 +43,18 @@ namespace DroneSystem.Dominio.Composite
         {
             IList<Object> listavaloes = new List<Object>();
             return listavaloes;
+        }
+
+        public override IList<string> ObtenerParametrizacion()
+        {
+            IList<string> formacion = new List<string>();
+            formacion.Add("Marca:tipo");
+            formacion.Add("Modelo:tipo");
+            formacion.Add("Unidad:String");
+            formacion.Add("Máximo:Double");
+            formacion.Add("Mínimo:Double");
+            formacion.Add("Precision:Double");
+            return formacion;
         }
 
         protected override void CalcularValor(double X, double Y, double Z)

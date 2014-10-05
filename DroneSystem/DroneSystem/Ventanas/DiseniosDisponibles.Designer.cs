@@ -33,6 +33,8 @@
             this.NombreDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VersionDisDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridDisComp = new System.Windows.Forms.DataGridView();
+            this.VersionDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbDisDron = new System.Windows.Forms.Label();
             this.lbDisComp = new System.Windows.Forms.Label();
             this.btnCerrarDisponibles = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@
             this.btnElimDisDron = new System.Windows.Forms.Button();
             this.btnModifDisDron = new System.Windows.Forms.Button();
             this.btnModifDisComp = new System.Windows.Forms.Button();
-            this.VersionDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomDisComp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisDron)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDisComp)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +84,16 @@
             this.dataGridDisComp.Size = new System.Drawing.Size(240, 244);
             this.dataGridDisComp.TabIndex = 1;
             // 
+            // VersionDisComp
+            // 
+            this.VersionDisComp.HeaderText = "Marca";
+            this.VersionDisComp.Name = "VersionDisComp";
+            // 
+            // NomDisComp
+            // 
+            this.NomDisComp.HeaderText = "Nombre Modelo";
+            this.NomDisComp.Name = "NomDisComp";
+            // 
             // lbDisDron
             // 
             this.lbDisDron.AutoSize = true;
@@ -98,9 +108,9 @@
             this.lbDisComp.AutoSize = true;
             this.lbDisComp.Location = new System.Drawing.Point(342, 19);
             this.lbDisComp.Name = "lbDisComp";
-            this.lbDisComp.Size = new System.Drawing.Size(128, 13);
+            this.lbDisComp.Size = new System.Drawing.Size(72, 13);
             this.lbDisComp.TabIndex = 3;
-            this.lbDisComp.Text = "Diseños de Componentes";
+            this.lbDisComp.Text = "Componentes";
             // 
             // btnCerrarDisponibles
             // 
@@ -171,16 +181,6 @@
             this.btnModifDisComp.Text = "Modificar";
             this.btnModifDisComp.UseVisualStyleBackColor = true;
             this.btnModifDisComp.Click += new System.EventHandler(this.btnModifDisComp_Click);
-            // 
-            // VersionDisComp
-            // 
-            this.VersionDisComp.HeaderText = "Marca";
-            this.VersionDisComp.Name = "VersionDisComp";
-            // 
-            // NomDisComp
-            // 
-            this.NomDisComp.HeaderText = "Nombre Modelo";
-            this.NomDisComp.Name = "NomDisComp";
             // 
             // DiseniosDisponibles
             // 

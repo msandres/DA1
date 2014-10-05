@@ -13,12 +13,15 @@ namespace DroneSystem.Dominio.Composite
         public int VelY { get; set; }
         public int VelZ { get; set; }
 
-        Velocimetro(string marca, string modelo)
+        public Velocimetro(string marca, string modelo)
         {
             this.Marca = marca;
             this.Modelo = modelo;
             //IdComponenteClase++;
             //this.IdComponente = IdComponenteClase;
+        }
+        public Velocimetro()
+        {         
         }
 
         public override IList<Object> ObtenerValorActual()
@@ -49,6 +52,26 @@ namespace DroneSystem.Dominio.Composite
         {
             IList<Object> listavaloes = new List<Object>();
             return listavaloes;
+        }
+
+        public override IList<string> ObtenerParametrizacion()
+        {
+            IList<string> formacion = new List<string>();
+            formacion.Add("Marca:tipo");
+            formacion.Add("Modelo:tipo");
+            formacion.Add("Unidad Eje X:String");
+            formacion.Add("Máximo Eje X:Double");
+            formacion.Add("Mínimo Eje X:Double");
+            formacion.Add("Precision Eje X:Double");
+            formacion.Add("Unidad Eje Y:String");
+            formacion.Add("Máximo Eje Y:Double");
+            formacion.Add("Mínimo Eje Y:Double");
+            formacion.Add("Precision Eje Y:Double");
+            formacion.Add("Unidad Eje Z:String");
+            formacion.Add("Máximo Eje Z:Double");
+            formacion.Add("Mínimo Eje Z:Double");
+            formacion.Add("Precision Eje Z:Double");
+            return formacion;
         }
 
         protected override void CalcularValor(double X, double Y, double Z)

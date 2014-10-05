@@ -27,6 +27,9 @@ namespace DroneSystem.Dominio.Composite
         public abstract IList<Object> ObtenerLimiteMaximo(); //obtiene el valor limite maximo
         public abstract IList<Object> ObtenerLimiteMinimo(); //obtiene el valor limite minimo
         public abstract IList<Object> ObtenerPrecision(); //obtiene el valor de precision
+
+        public abstract IList<string> ObtenerParametrizacion(); //obtiene el nombre de las variables con las que cuenta el tipo, se para llenar ventanas
+
         public abstract bool Alarmado(); //alarma cuando pasa el minimo o el maximo, es recursivo para componentes
 
 
@@ -46,6 +49,11 @@ namespace DroneSystem.Dominio.Composite
             double ubicZ = this.dronMedido.UbicacionZ();
 
             SetValor(ubicX, ubicY, ubicZ);
+        }
+
+        public void AsignarDron(Dron dron)
+        {
+            this.dronMedido = dron;
         }
 
         public override bool Equals(object obj)
