@@ -51,6 +51,10 @@ namespace DroneSystem.Ventanas
 
                 Fachada.GetInstancia().CrearComponente(parametrosConf);
 
+                parametrosConf = new List<object>();
+
+                parametrosConf.Add(cBTipos.SelectedItem);
+
                 idRow++;
             }
             MessageBox.Show("Falta Implementar");

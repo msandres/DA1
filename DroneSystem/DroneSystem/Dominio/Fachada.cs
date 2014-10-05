@@ -96,7 +96,7 @@ namespace DroneSystem.Dominio
                 case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
                     break;
             }
-            //ComponenteAbstracto cmp = new Termometro(marca,modelo,unidades,max,min,precision);
+            
             stock.AgregarComponente(comp);
         }
 
@@ -117,7 +117,7 @@ namespace DroneSystem.Dominio
                     break;
                 case "GPS": //parametros = new Gps().ObtenerParametrizacion();
                     break;
-                case "Termómetro": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 6 });
+                case "Termómetro": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5 });
                     break;
                 case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
                     break;
@@ -128,20 +128,30 @@ namespace DroneSystem.Dominio
             {
                 int idParam = listaIdsLista[idConf];
 
-                if (listaListasPar.Count > idParam)
+                if (listaListasPar.Count-1 < idParam)
                 {
-
+                    listaListasPar.Add(new List<object>());
                 }
-                else 
-                { 
-
-                }
+                listaListasPar[idParam].Add(configuracion[idConf]);
                
                 idConf++;
             }
 
-
-            
+            switch (tipoComponente)
+            {
+                case "Altímetro": //parametros = new Altimetro().ObtenerParametrizacion();
+                    break;
+                case "Barómetro": //parametros = new Barometro().ObtenerParametrizacion();
+                    break;
+                case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
+                    break;
+                case "GPS": //parametros = new Gps().ObtenerParametrizacion();
+                    break;
+                case "Termómetro": c = new Termometro(listaListasPar[0][0].ToString(), listaListasPar[1][0].ToString(), listaListasPar[2], listaListasPar[3], listaListasPar[4], listaListasPar[5]);
+                    break;
+                case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
+                    break;
+            }
 
             return c;
         }

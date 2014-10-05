@@ -14,15 +14,14 @@ namespace DroneSystem.Dominio.Composite
         private IList<double> valorMin;
         private IList<double> valorPrecision;
 
-        public Termometro(string marca,string modelo,IList<string> unidades,IList<double> max,IList<double> min, IList<double> precision)
+        public Termometro(string marca, string modelo, IList<object> unidades, IList<object> max, IList<object> min, IList<object> precision)
         {
             this.Marca = marca;
             this.Modelo = modelo;
-            this.unidadesTemp = unidades;
-            this.valorMax = max;
-            this.valorMin = min;
-            this.valorPrecision = precision;
-
+            this.unidadesTemp = unidades.Select(s => (string)s).ToList();
+            this.valorMax = max.Select(s => (double)s).ToList();
+            this.valorMin = min.Select(s => (double)s).ToList(); 
+            this.valorPrecision = precision.Select(s => (double)s).ToList();
          }
 
         public Termometro()
