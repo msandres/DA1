@@ -22,31 +22,38 @@ namespace DroneSystem.Dominio.Composite
 
         public override IList<Object> ObtenerValorActual()
         {
-            IList<Object> listavaloes = new List<Object>();
-            return listavaloes;
+            IList<Object> listavalores = new List<Object>();
+            foreach (ComponenteAbstracto cmp in Listacomponentes)
+            {
+                foreach (var valor in cmp.ObtenerValorActual())
+                {
+                    listavalores.Add(valor);
+                }
+            }
+            return listavalores;
         }
 
         public override IList<Object> ObtenerUnidades()
         {
-            IList<Object> listavaloes = new List<Object>();
-            return listavaloes;
+            IList<Object> listavalores = new List<Object>();
+            return listavalores;
         }
 
         public override IList<Object> ObtenerLimiteMaximo()
         {
-            IList<Object> listavaloes = new List<Object>();
-            return listavaloes;
+            IList<Object> listavalores = new List<Object>();
+            return listavalores;
         }
         public override IList<Object> ObtenerLimiteMinimo()
         {
-            IList<Object> listavaloes = new List<Object>();
-            return listavaloes;
+            IList<Object> listavalores = new List<Object>();
+            return listavalores;
         }
 
         public override IList<Object> ObtenerPrecision()
         {
-            IList<Object> listavaloes = new List<Object>();
-            return listavaloes;
+            IList<Object> listavalores = new List<Object>();
+            return listavalores;
         }
 
         public override IList<string> ObtenerParametrizacion()

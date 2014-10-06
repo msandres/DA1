@@ -22,6 +22,9 @@ namespace DroneSystem.Dominio.Composite
             this.valorMax = max.Select(s => (double)s).ToList();
             this.valorMin = min.Select(s => (double)s).ToList(); 
             this.valorPrecision = precision.Select(s => (double)s).ToList();
+
+            this.valorTemp = new List<double>();
+            this.valorTemp.Add(23); //por ahora el valor por defecto del term es 23
          }
 
         public Termometro()
@@ -75,10 +78,9 @@ namespace DroneSystem.Dominio.Composite
         protected override void CalcularValor(double X, double Y, double Z)
         {
             List<double> nuevoValor = new List<double>();
-            double valor = (double)ObtenerValorActual()[0] - (Z/3); //obtengo el valor actual y le resto un tercio de Z, es decir cada 3 metros bajo un grado
+            double valor = 23 - (Z/50); //obtengo el valor actual, cada 50 metros bajo un grado
             nuevoValor.Add(valor);
             this.valorTemp = nuevoValor;
-
         }
 
         public override bool Alarmado()

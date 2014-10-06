@@ -48,11 +48,8 @@ namespace DroneSystem
                 dataGridDrones.Rows.Add(dron.GetNombre(), dron.GetNroSerie());
             }
 
-
             dataGridDrones.Refresh();
             dataGridComponentes.Refresh();
-
-
         }
 
 

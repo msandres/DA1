@@ -51,18 +51,30 @@ namespace DroneSystem.Dominio
         {
             ((Observable)stock).AgregarOb(observerStock);
         }
+        public void AagregarObserverDron(IObserver observerDron)
+        {
+            ((Observable)GetDronActivo()).AgregarOb(observerDron);
+        }
 
         public void RemoverObserverStock(IObserver observerStock)
         {
             ((Observable)stock).RemoverOb(observerStock);
         }
-        
-        public void CrearPlanDeVuelo(string nombrePlan ,List<double> recX,List<double> recY,List<double> recZ,
+        public void RemoverObserverDron(IObserver observerDron)
+        {
+            foreach (Dron dron in GetDrones())
+            {
+                ((Observable)dron).RemoverOb(observerDron);
+            }
+            
+        }
+
+        public void CrearPlanDeVuelo(string nombrePlan, List<double> recX, List<double> recY, List<double> recZ,
                                     double velX, double velY, double velZ)
         {
-        PlanVuelo nuevoPlan = new PlanVuelo(nombrePlan,recX,recY,recZ,velX,velY,velZ);
+            PlanVuelo nuevoPlan = new PlanVuelo(nombrePlan, recX, recY, recZ, velX, velY, velZ);
 
-        stock.AgregarPlanVuelo(nuevoPlan);
+            stock.AgregarPlanVuelo(nuevoPlan);
 
         }
 
@@ -76,20 +88,19 @@ namespace DroneSystem.Dominio
             stock.EliminarPlanVuelo(plan);
         }
 
-        public void CrearDron(string nombre,string color,string control,List<int> idComponentes)
+        public void CrearDron(string nombre, string color, string control, List<int> idComponentes)
         {
+            Dron nuevoDron = new Dron(nombre, color, control);
             List<ComponenteAbstracto> componentesDron = new List<ComponenteAbstracto>();
 
-            foreach(int id in idComponentes)
+            foreach (int id in idComponentes)
             {
                 componentesDron.Add(GetComponentes()[id]);
+                GetComponentes()[id].AsignarDron(nuevoDron);
                 stock.EliminarComponente(GetComponentes()[id]);
             }
-
-            Dron nuevoDron = new Dron(nombre, color, control);
             nuevoDron.AgregarComponentes(componentesDron);
             stock.AgregarDron(nuevoDron);
-
         }
 
         public IList<Dron> GetDrones()
@@ -97,10 +108,63 @@ namespace DroneSystem.Dominio
             return stock.GetDrones();
         }
 
-        public void CrearComponente(IList<object> configuracion)
-            //string marca,string modelo,IList<string> unidades,IList<double> max,IList<double> min, IList<double> precision)
+        private Dron GetDronActivo()
         {
-            ComponenteAbstracto comp=null;
+            Dron retornoDron = null;
+            foreach (Dron dron in stock.GetDrones())
+            {
+                if (dron.EnMovimiento())
+                    retornoDron = dron;
+            }
+            return retornoDron;
+        }
+
+        public void TerminarVueloDron()
+        {
+            if (GetDronActivo()!=null)
+                GetDronActivo().DetenerVuelo();
+        }
+
+        public void IniciarVuelo(int iDdron, int iDplan)
+        {
+            GetDrones()[iDdron].IniciarVuelo(GetPlanesDeVuelo()[iDplan]);
+        }
+
+        //informacion para que las ventanas muestren dinamicamente los valores
+        public List<List<string>> InfoDronActivo()
+        {
+            List<List<string>> listaInfo = new List<List<string>>(); 
+            Dron dron = GetDronActivo();
+            if (dron != null)
+            {
+                //agrego informacion del dron en la primer lista
+                List<string> infoDron = new List<string>();
+                infoDron.Add(dron.GetNombre());
+                infoDron.Add(dron.GetNroSerie().ToString());
+                infoDron.Add(dron.GetColor());
+
+                listaInfo.Add(infoDron);
+
+                List<string> infoComp = null;
+                foreach (ComponenteAbstracto cmp in dron.GetComponentes())
+                {
+                    infoComp = new List<string>();
+                    infoComp.Add(cmp.Marca);
+                    infoComp.Add(cmp.Modelo);
+                    foreach (var idVal in cmp.ObtenerValorActual())
+                        infoComp.Add(idVal.ToString());
+                    if (cmp.Alarmado())
+                        infoComp.Add("ALARMA");
+                    listaInfo.Add(infoComp);
+                }
+            }
+            return listaInfo ;
+        }
+
+        public void CrearComponente(IList<object> configuracion)
+        //string marca,string modelo,IList<string> unidades,IList<double> max,IList<double> min, IList<double> precision)
+        {
+            ComponenteAbstracto comp = null;
             string tipoComponente = configuracion[0].ToString();
             switch (tipoComponente)
             {
@@ -110,14 +174,14 @@ namespace DroneSystem.Dominio
                     break;
                 case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
                     break;
-                case "GPS": //parametros = new Gps().ObtenerParametrizacion();
+                case "GPS": comp = CrearComponenteConcreto(configuracion);
                     break;
                 case "Termómetro": comp = CrearComponenteConcreto(configuracion);
                     break;
                 case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
                     break;
             }
-            
+
             stock.AgregarComponente(comp);
         }
 
@@ -136,7 +200,7 @@ namespace DroneSystem.Dominio
                     break;
                 case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
                     break;
-                case "GPS": //parametros = new Gps().ObtenerParametrizacion();
+                case "GPS": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 2, 3, 4, 5, 2, 3, 4, 5, });
                     break;
                 case "Termómetro": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5 });
                     break;
@@ -145,16 +209,16 @@ namespace DroneSystem.Dominio
             }
 
             int idConf = 0;
-            while (idConf< configuracion.Count)
+            while (idConf < configuracion.Count)
             {
                 int idParam = listaIdsLista[idConf];
 
-                if (listaListasPar.Count-1 < idParam)
+                if (listaListasPar.Count - 1 < idParam)
                 {
                     listaListasPar.Add(new List<object>());
                 }
                 listaListasPar[idParam].Add(configuracion[idConf]);
-               
+
                 idConf++;
             }
 
@@ -166,7 +230,7 @@ namespace DroneSystem.Dominio
                     break;
                 case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
                     break;
-                case "GPS": //parametros = new Gps().ObtenerParametrizacion();
+                case "GPS": c = new Gps(listaListasPar[0][0].ToString(), listaListasPar[1][0].ToString(), listaListasPar[2], listaListasPar[3], listaListasPar[4], listaListasPar[5]);
                     break;
                 case "Termómetro": c = new Termometro(listaListasPar[0][0].ToString(), listaListasPar[1][0].ToString(), listaListasPar[2], listaListasPar[3], listaListasPar[4], listaListasPar[5]);
                     break;
@@ -184,14 +248,14 @@ namespace DroneSystem.Dominio
 
         //Se usa para las ventanas
         public IList<string> TiposComponente()
-        { 
-           List<string> listaTipos = new List<string>();
-           listaTipos.Add("Altímetro");
-           listaTipos.Add("Barómetro");
-           listaTipos.Add("Componente Compuesto");
-           listaTipos.Add("GPS");
-           listaTipos.Add("Termómetro");
-           listaTipos.Add("Velocímetro");
+        {
+            List<string> listaTipos = new List<string>();
+            listaTipos.Add("Altímetro");
+            listaTipos.Add("Barómetro");
+            listaTipos.Add("Componente Compuesto");
+            listaTipos.Add("GPS");
+            listaTipos.Add("Termómetro");
+            listaTipos.Add("Velocímetro");
 
             return listaTipos;
         }

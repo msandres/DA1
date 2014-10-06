@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VueloReal));
             this.dataGridPlan = new System.Windows.Forms.DataGridView();
             this.nombrePlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridDrones = new System.Windows.Forms.DataGridView();
             this.ModeloDron = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnIniciar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPlan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridPlan
@@ -56,18 +56,18 @@
             this.nombrePlan.HeaderText = "Nombre";
             this.nombrePlan.Name = "nombrePlan";
             // 
-            // dataGridView1
+            // dataGridDrones
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridDrones.AllowUserToAddRows = false;
+            this.dataGridDrones.AllowUserToDeleteRows = false;
+            this.dataGridDrones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDrones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ModeloDron});
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(415, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(332, 150);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridDrones.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridDrones.Location = new System.Drawing.Point(415, 55);
+            this.dataGridDrones.Name = "dataGridDrones";
+            this.dataGridDrones.Size = new System.Drawing.Size(332, 150);
+            this.dataGridDrones.TabIndex = 1;
             // 
             // ModeloDron
             // 
@@ -90,14 +90,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 283);
             this.Controls.Add(this.btnIniciar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridDrones);
             this.Controls.Add(this.dataGridPlan);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VueloReal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Vuelo Real";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPlan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,7 +106,7 @@
 
         private System.Windows.Forms.DataGridView dataGridPlan;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrePlan;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridDrones;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModeloDron;
         private System.Windows.Forms.Button btnIniciar;
     }
