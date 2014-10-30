@@ -29,6 +29,8 @@ namespace DroneSystem
             timeSec.Enabled = true;
             timeSec.Interval = 1000;
             timeSec.Tick += new EventHandler(AccionTemporal);
+            CargaDatosBaseSQL baseP = new CargaDatosBaseSQL();
+            baseP.Cargar();
         }
 
         public void Actualizar()
