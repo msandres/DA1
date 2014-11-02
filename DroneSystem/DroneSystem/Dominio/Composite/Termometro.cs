@@ -81,11 +81,28 @@ namespace DroneSystem.Dominio.Composite
             double valor = 23 - (Z/50); //obtengo el valor actual, cada 50 metros bajo un grado
             nuevoValor.Add(valor);
             this.valorTemp = nuevoValor;
+
+            if (valorTemp[0] > valorMax[0] || valorTemp[0] < valorMin[0])
+            {
+                this.alarmado = true;
+                this.tiempoAlarmado += 1;
+
+            }
+            else
+            {
+                this.alarmado = false;
+                this.tiempoAlarmado = 0;
+            }
+            if (this.tiempoAlarmado > 5)
+            {
+                this.destruido = true;
+                this.dronMedido.Destruir();
+            }
         }
 
         public override bool Alarmado()
         {
-            return true;
+            return this.alarmado;
         }
     }
 }

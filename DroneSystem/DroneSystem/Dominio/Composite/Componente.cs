@@ -8,22 +8,30 @@ namespace DroneSystem.Dominio.Composite
 {
     class Componente:ComponenteAbstracto
     {
-        public IList<ComponenteAbstracto> Listacomponentes { get; set; }
+        private IList<ComponenteAbstracto> listacomponentes;
 
 
         public Componente()
         {
             //IdComponenteClase++;
             //this.IdComponente = IdComponenteClase;
-            Listacomponentes = new List<ComponenteAbstracto>();
-                
+            listacomponentes = new List<ComponenteAbstracto>();
         }
 
+        public IList<ComponenteAbstracto> GetComponentes()
+        {
+            return this.listacomponentes;
+        }
+
+        public void AgregarComponente(ComponenteAbstracto cmp)
+        {
+            this.listacomponentes.Add(cmp);
+        }
 
         public override IList<Object> ObtenerValorActual()
         {
             IList<Object> listavalores = new List<Object>();
-            foreach (ComponenteAbstracto cmp in Listacomponentes)
+            foreach (ComponenteAbstracto cmp in listacomponentes)
             {
                 foreach (var valor in cmp.ObtenerValorActual())
                 {

@@ -15,8 +15,9 @@ namespace DroneSystem.Dominio.Composite
        // public int IdComponente { get; set; }  //usado para identificar un componente de otro
       //  protected static int IdComponenteClase { get; set; }   //para stockear los componentes
 
-         private int tiempoAlarmado = 0;  //medido en segundos
-        private bool destruido = false; // implementar el pasaje a true, cuando tiempoAlarmado > 5
+        protected int tiempoAlarmado = 0;  //medido en segundos
+        protected bool destruido = false; // implementar el pasaje a true, cuando tiempoAlarmado > 5
+        protected bool alarmado = false;
         
 
  
@@ -30,10 +31,13 @@ namespace DroneSystem.Dominio.Composite
 
         public abstract IList<string> ObtenerParametrizacion(); //obtiene el nombre de las variables con las que cuenta el tipo, se para llenar ventanas
 
+        public virtual bool Destruido()
+        {
+            return this.destruido;
+        }
+
         public abstract bool Alarmado(); //alarma cuando pasa el minimo o el maximo, es recursivo para componentes
-
-
-
+        
         //calcula el valor de la pieza en funcion de la ubicación X,Y,Z
         public virtual void SetValor(double X,double Y, double Z)
         {

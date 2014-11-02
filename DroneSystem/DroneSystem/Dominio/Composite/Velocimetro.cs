@@ -9,9 +9,9 @@ namespace DroneSystem.Dominio.Composite
     public class Velocimetro : ComponenteAbstracto
     {
 
-        public int VelX { get; set; }
-        public int VelY { get; set; }
-        public int VelZ { get; set; }
+        private int VelX;
+        private int VelY;
+        private int VelZ;
 
         public Velocimetro(string marca, string modelo)
         {
@@ -20,6 +20,7 @@ namespace DroneSystem.Dominio.Composite
             //IdComponenteClase++;
             //this.IdComponente = IdComponenteClase;
         }
+
         public Velocimetro()
         {         
         }
@@ -81,7 +82,7 @@ namespace DroneSystem.Dominio.Composite
 
         public override bool Alarmado()
         {
-            return true;
+            return this.alarmado;
         }
 
     }

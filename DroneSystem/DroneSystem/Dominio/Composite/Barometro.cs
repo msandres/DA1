@@ -64,7 +64,7 @@ namespace DroneSystem.Dominio.Composite
 
         public override bool Alarmado()
         {
-            return true;
+            return this.alarmado;
         }
     }
 }

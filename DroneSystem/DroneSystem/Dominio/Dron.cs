@@ -116,6 +116,11 @@ namespace DroneSystem
         {
             this.precio=precio;
         }
+        public void Destruir()
+        {
+            this.funcionando = false;
+            this.enMovimiento = false;
+        }
         public void IniciarVuelo(PlanVuelo plan)
         {
             //configuro la velocidad de avance

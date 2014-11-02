@@ -9,9 +9,7 @@ namespace DroneSystem.Dominio.Composite
     public class Altimetro:ComponenteAbstracto
     {
 
-        public int AltX { get; set; }
-        public int AltY { get; set; }
-        public int AltZ { get; set; }
+        private int AltZ;
 
         public Altimetro(string marca, string modelo)
         {
