@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace DroneSystem.Ventanas
 {
     public partial class ControlDeVuelo : Form, IObserver
@@ -18,7 +20,6 @@ namespace DroneSystem.Ventanas
         {
             InitializeComponent();
             DibujarInicial();
-
         }
 
         private void DibujarInicial()
