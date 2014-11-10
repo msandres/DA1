@@ -47,6 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Broker\BrokerAbstracto.cs" />
+    <Compile Include="Dominio\Broker\BrokerAltimetro.cs" />
+    <Compile Include="Dominio\Broker\BrokerBarometro.cs" />
+    <Compile Include="Dominio\Broker\BrokerComponente.cs" />
+    <Compile Include="Dominio\Broker\BrokerGps.cs" />
+    <Compile Include="Dominio\Broker\BrokerTermometro.cs" />
+    <Compile Include="Dominio\Broker\BrokerVelocimetro.cs" />
     <Compile Include="Dominio\Composite\Altimetro.cs" />
     <Compile Include="Dominio\Composite\Barometro.cs" />
     <Compile Include="Dominio\Composite\Componente.cs" />
@@ -194,6 +201,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dominio\Fabricas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

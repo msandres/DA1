@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DroneSystem.Dominio.Composite
 {
-    class Componente:ComponenteAbstracto
+    public class Componente:ComponenteAbstracto
     {
         private IList<ComponenteAbstracto> listacomponentes;
 
