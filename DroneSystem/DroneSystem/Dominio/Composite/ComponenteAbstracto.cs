@@ -1,4 +1,5 @@
-﻿using DroneSystem.PatronesExtras.Observer;
+﻿using DroneSystem.IPersistenciaPack;
+using DroneSystem.PatronesExtras.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DroneSystem.Dominio.Composite
 {
-    public abstract class ComponenteAbstracto : IComparable, IObserver
+    public abstract class ComponenteAbstracto : OPersistente, IComparable, IObserver
     {
         public string Marca { get; set; }
         public string Modelo { get; set; }

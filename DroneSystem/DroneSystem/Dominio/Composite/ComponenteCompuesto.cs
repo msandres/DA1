@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DroneSystem.Dominio.Composite
 {
-    public class Componente:ComponenteAbstracto
+    public class ComponenteCompuesto:ComponenteAbstracto
     {
         private IList<ComponenteAbstracto> listacomponentes;
 
 
-        public Componente()
+        public ComponenteCompuesto()
         {
             //IdComponenteClase++;
             //this.IdComponente = IdComponenteClase;

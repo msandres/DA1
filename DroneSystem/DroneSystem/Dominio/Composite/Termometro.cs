@@ -16,6 +16,8 @@ namespace DroneSystem.Dominio.Composite
 
         public Termometro(string marca, string modelo, IList<object> unidades, IList<object> max, IList<object> min, IList<object> precision)
         {
+            this.OID = SiguienteOID();
+            AumentarOID();
             this.Marca = marca;
             this.Modelo = modelo;
             this.unidadesTemp = unidades.Select(s => (string)s).ToList();

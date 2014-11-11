@@ -17,13 +17,12 @@ namespace DroneSystem.Dominio.Persistencia
             string constr = ConfigurationManager.ConnectionStrings["BASELOCAL"].ToString(); 
             SqlConnection con = new SqlConnection(constr);
             con.Open();
-            SqlCommand comand = new SqlCommand("SELECT *  FROM [DRONSYSTEM].[dbo].[Componentes]", con);
+            SqlCommand comand = new SqlCommand("SELECT *  FROM [DRONSYSTEM].[dbo].[ComponenteAbstacto]", con);
 
             //int cant = comand.ExecuteNonQuery();
 
             SqlDataReader dr = comand.ExecuteReader();
-
-
+            
             DataTable dt = new DataTable();
 
             dt.Load(dr);

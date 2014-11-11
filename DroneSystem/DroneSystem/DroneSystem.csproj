@@ -47,16 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\Broker\BrokerAbstracto.cs" />
-    <Compile Include="Dominio\Broker\BrokerAltimetro.cs" />
-    <Compile Include="Dominio\Broker\BrokerBarometro.cs" />
-    <Compile Include="Dominio\Broker\BrokerComponente.cs" />
-    <Compile Include="Dominio\Broker\BrokerGps.cs" />
-    <Compile Include="Dominio\Broker\BrokerTermometro.cs" />
-    <Compile Include="Dominio\Broker\BrokerVelocimetro.cs" />
+    <Compile Include="IPersistenciaPack\IPersistencia.cs" />
+    <Compile Include="IPersistenciaPack\OPersistente.cs" />
+    <Compile Include="Persistencia\Broker\BrokerAbstracto.cs" />
+    <Compile Include="Persistencia\Broker\BrokerAltimetro.cs" />
+    <Compile Include="Persistencia\Broker\BrokerBarometro.cs" />
+    <Compile Include="Persistencia\Broker\BrokerComponente.cs" />
+    <Compile Include="Persistencia\Broker\BrokerGps.cs" />
+    <Compile Include="Persistencia\Broker\BrokerTermometro.cs" />
+    <Compile Include="Persistencia\Broker\BrokerVelocimetro.cs" />
     <Compile Include="Dominio\Composite\Altimetro.cs" />
     <Compile Include="Dominio\Composite\Barometro.cs" />
-    <Compile Include="Dominio\Composite\Componente.cs" />
+    <Compile Include="Dominio\Composite\ComponenteCompuesto.cs" />
     <Compile Include="Dominio\Composite\ComponenteAbstracto.cs" />
     <Compile Include="Dominio\Composite\Gps.cs" />
     <Compile Include="Dominio\Composite\Termometro.cs" />
@@ -64,9 +66,11 @@
     <Compile Include="Dominio\Dron.cs" />
     <Compile Include="Dominio\Fachada.cs" />
     <Compile Include="Dominio\Stock\IStock.cs" />
-    <Compile Include="Dominio\Persistencia\CargaDatosBaseSQL.cs" />
-    <Compile Include="Dominio\Persistencia\CargaDatosManual.cs" />
-    <Compile Include="Dominio\Persistencia\ICargaDatos.cs" />
+    <Compile Include="Persistencia\CargaDatosBaseSQL.cs" />
+    <Compile Include="Persistencia\CargaDatosManual.cs" />
+    <Compile Include="Persistencia\ConexBD.cs" />
+    <Compile Include="Persistencia\FachadaPersistencia.cs" />
+    <Compile Include="Persistencia\ICargaDatos.cs" />
     <Compile Include="Dominio\PlanVuelo.cs" />
     <Compile Include="Dominio\Reporte.cs" />
     <Compile Include="Dominio\Stock\Stock.cs" />
