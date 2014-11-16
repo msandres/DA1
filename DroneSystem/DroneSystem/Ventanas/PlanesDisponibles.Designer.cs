@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlanesDisponibles));
             this.datagridPlanes = new System.Windows.Forms.DataGridView();
-            this.nombrePlanes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbPlanesDisp = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.nombrePlanes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoordIni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoordFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datagridPlanes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,16 +46,13 @@
             this.datagridPlanes.AllowUserToDeleteRows = false;
             this.datagridPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombrePlanes});
+            this.nombrePlanes,
+            this.CoordIni,
+            this.CoordFin});
             this.datagridPlanes.Location = new System.Drawing.Point(17, 57);
             this.datagridPlanes.Name = "datagridPlanes";
-            this.datagridPlanes.Size = new System.Drawing.Size(247, 313);
+            this.datagridPlanes.Size = new System.Drawing.Size(458, 313);
             this.datagridPlanes.TabIndex = 0;
-            // 
-            // nombrePlanes
-            // 
-            this.nombrePlanes.HeaderText = "Nombre";
-            this.nombrePlanes.Name = "nombrePlanes";
             // 
             // lbPlanesDisp
             // 
@@ -87,7 +86,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(215, 437);
+            this.btnCerrar.Location = new System.Drawing.Point(377, 437);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(98, 33);
             this.btnCerrar.TabIndex = 4;
@@ -95,11 +94,26 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // nombrePlanes
+            // 
+            this.nombrePlanes.HeaderText = "Nombre";
+            this.nombrePlanes.Name = "nombrePlanes";
+            // 
+            // CoordIni
+            // 
+            this.CoordIni.HeaderText = "Coordenada Inicial";
+            this.CoordIni.Name = "CoordIni";
+            // 
+            // CoordFin
+            // 
+            this.CoordFin.HeaderText = "Coordenada Final";
+            this.CoordFin.Name = "CoordFin";
+            // 
             // PlanesDisponibles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 495);
+            this.ClientSize = new System.Drawing.Size(487, 495);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -118,10 +132,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView datagridPlanes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombrePlanes;
         private System.Windows.Forms.Label lbPlanesDisp;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombrePlanes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CoordIni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CoordFin;
     }
 }

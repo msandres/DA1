@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DroneSystem.Dominio.Broker
+namespace DroneSystem.Persistencia.Broker
 {
     public class BrokerTermometro : BrokerAbstracto
     {

@@ -8,6 +8,6 @@ namespace DroneSystem.Dominio.Fabricas
 {
     public interface IFabricaDron
     {
-        Dron CrearDisenioDron();
+        Dron CrearDisenioDron(String nombre, String color, String control);
     }
 }

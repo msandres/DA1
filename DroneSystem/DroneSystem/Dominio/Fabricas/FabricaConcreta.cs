@@ -19,6 +19,9 @@ namespace DroneSystem.Dominio.Fabricas
             FabricaGps = new FabricaConcretaGps();
             FabricaTermometro = new FabricaConcretaTermometro();
             FabricaVelocimetro = new FabricaConcretaVelocimetro();
+
+            FabricaDron = new FabricaConcretaDron();
+            FabricaPlanVuelo = new FabricaConcretaPlanVuelo();
         }
 
         public override ComponenteAbstracto CrearComponente(IList<object> configuracion)
@@ -79,6 +82,18 @@ namespace DroneSystem.Dominio.Fabricas
             }
 
             return compAbs;
+        }
+
+
+        public override Dron CrearDron(String nombre, String color, String control)
+        {
+            return  FabricaDron.CrearDisenioDron(nombre, color, control);
+        }
+
+
+        public override PlanVuelo CrearPlanDeVuelo(String nombrePlan, List<double> recX, List<double> recY, List<double> recZ, Double velX, Double velY, Double velZ)
+        {
+            return FabricaPlanVuelo.CrearPlanDeVuelo(nombrePlan, recX, recY, recZ, velX, velY, velZ);
         }
     }
 }

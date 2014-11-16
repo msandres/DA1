@@ -37,7 +37,9 @@ namespace DroneSystem.Ventanas
             datagridPlanes.Refresh();
             foreach (PlanVuelo plan in Fachada.GetInstancia().GetPlanesDeVuelo())
             {
-                datagridPlanes.Rows.Add(plan.GetNombre());
+                string coordIni = String.Format("({0},{1},{2})",plan.GetRecorridoX()[0],plan.GetRecorridoY()[0],plan.GetRecorridoZ()[0]);
+                string coordFin = String.Format("({0},{1},{2})", plan.GetRecorridoX()[plan.GetRecorridoX().Count - 1], plan.GetRecorridoY()[plan.GetRecorridoY().Count - 1], plan.GetRecorridoZ()[plan.GetRecorridoZ().Count - 1]);
+                datagridPlanes.Rows.Add(plan.GetNombre(),coordIni,coordFin);
             }
 
             datagridPlanes.Refresh();

@@ -63,6 +63,36 @@ namespace DroneSystem.Dominio.Composite
 
         public abstract IList<string> ObtenerParametrizacion(); //obtiene el nombre de las variables con las que cuenta el tipo, se para llenar ventanas
         public abstract void ResetarValores(); //deja los valores por defectos de un sensor, como si los mismo no estuvieran midiendo nada
+        public virtual void Alarmar() //Alarma el sensor en caso de que la medición actual pase los umbrales max y min
+        {
+            if (this.tiempoAlarmado > 5)
+            {
+                this.destruido = true;
+                this.dronMedido.Destruir();
+            }
+            else
+            {
+                int largoListaValores = this.valor.Count;
+                int idLista = 0;
+                bool dioAlarma = false;
+                while (!dioAlarma && idLista < largoListaValores)   //recorro las variables medidas a ver si alguna está alarmada
+                {
+                    dioAlarma = (this.valor[idLista] > this.valorMax[idLista] || this.valor[idLista] < this.valorMin[idLista]);
+                    idLista++;
+                }
+
+                if (dioAlarma)  //si alguna alarmó, marco como alarmado
+                {
+                    this.alarmado = true;
+                    this.tiempoAlarmado += 1;
+                }
+                else 
+                {
+                    this.alarmado = false;
+                    this.tiempoAlarmado = 0;
+                }
+            }
+        }
 
         public virtual bool Destruido()
         {
@@ -78,6 +108,7 @@ namespace DroneSystem.Dominio.Composite
         public virtual void SetValor(double X,double Y, double Z)
         {
             CalcularValor(X,Y,Z);
+            Alarmar();
         }
 
         protected abstract void CalcularValor(double X, double Y, double Z);

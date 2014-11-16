@@ -47,7 +47,10 @@ namespace DroneSystem.Dominio.Composite
 
         protected override void CalcularValor(double X, double Y, double Z)
         {
-            throw new NotImplementedException();
+            List<double> nuevoValor = new List<double>();
+            double valorCalc = Z; //obtengo el valor en Z que representa la altura en un sistema X,Y,Z
+            nuevoValor.Add(valorCalc);
+            this.valor = nuevoValor;
         }
 
     }

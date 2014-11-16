@@ -33,7 +33,7 @@ namespace DroneSystem.Dominio
             IList<string> parametros = null;
             switch (tipo)
             {
-                case "Acelerómetro": parametros = new Altimetro().ObtenerParametrizacion();
+                case "Acelerómetro": parametros = new Acelerometro().ObtenerParametrizacion();
                     break;
                 case "Altímetro": parametros = new Altimetro().ObtenerParametrizacion();
                     break;
@@ -77,10 +77,8 @@ namespace DroneSystem.Dominio
         public void CrearPlanDeVuelo(string nombrePlan, List<double> recX, List<double> recY, List<double> recZ,
                                     double velX, double velY, double velZ)
         {
-            PlanVuelo nuevoPlan = new PlanVuelo(nombrePlan, recX, recY, recZ, velX, velY, velZ);
-
+            PlanVuelo nuevoPlan = fabrica.CrearPlanDeVuelo(nombrePlan, recX, recY, recZ, velX, velY, velZ);
             stock.AgregarPlanVuelo(nuevoPlan);
-
         }
 
         public IList<PlanVuelo> GetPlanesDeVuelo()
@@ -95,7 +93,7 @@ namespace DroneSystem.Dominio
 
         public void CrearDron(string nombre, string color, string control, List<int> idComponentes)
         {
-            Dron nuevoDron = new Dron(nombre, color, control);
+            Dron nuevoDron = fabrica.CrearDron(nombre, color, control);
             List<ComponenteAbstracto> componentesDron = new List<ComponenteAbstracto>();
 
             foreach (int id in idComponentes)
@@ -172,87 +170,6 @@ namespace DroneSystem.Dominio
             ComponenteAbstracto comp = fabrica.CrearComponente(configuracion);
             stock.AgregarComponente(comp);
         }
-
-        //public void CrearComponente(IList<object> configuracion)
-        ////string marca,string modelo,IList<string> unidades,IList<double> max,IList<double> min, IList<double> precision)
-        //{
-        //    ComponenteAbstracto comp = null;
-        //    string tipoComponente = configuracion[0].ToString();
-        //    switch (tipoComponente)
-        //    {
-        //        case "Altímetro": //parametros = new Altimetro().ObtenerParametrizacion();
-        //            break;
-        //        case "Barómetro": //parametros = new Barometro().ObtenerParametrizacion();
-        //            break;
-        //        case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
-        //            break;
-        //        case "GPS": comp = CrearComponenteConcreto(configuracion);
-        //            break;
-        //        case "Termómetro": comp = CrearComponenteConcreto(configuracion);
-        //            break;
-        //        case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
-        //            break;
-        //    }
-
-        //    stock.AgregarComponente(comp);
-        //}
-
-        //private ComponenteAbstracto CrearComponenteConcreto(IList<object> configuracion)
-        //{
-        //    ComponenteAbstracto compAbs = null;
-        //    List<int> listaIdsLista = null; //pongo que parametro va en que lista de paramaetros, sobre todo para las piezas con multiples variables, gps por ejemplo
-        //    List<List<object>> listaListasPar = new List<List<object>>();
-        //    string tipoComponente = configuracion[0].ToString();
-        //    configuracion.RemoveAt(0);
-        //    switch (tipoComponente)
-        //    {
-        //        case "Altímetro": //parametros = new Altimetro().ObtenerParametrizacion();
-        //            break;
-        //        case "Barómetro": //parametros = new Barometro().ObtenerParametrizacion();
-        //            break;
-        //        case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
-        //            break;
-        //        case "GPS": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 2, 3, 4, 5, 2, 3, 4, 5, });
-        //            break;
-        //        case "Termómetro": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5 });
-        //            break;
-        //        case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
-        //            break;
-        //    }
-
-        //    int idConf = 0;
-        //    while (idConf < configuracion.Count)
-        //    {
-        //        int idParam = listaIdsLista[idConf];
-
-        //        if (listaListasPar.Count - 1 < idParam)
-        //        {
-        //            listaListasPar.Add(new List<object>());
-        //        }
-        //        listaListasPar[idParam].Add(configuracion[idConf]);
-
-        //        idConf++;
-        //    }
-
-        //    switch (tipoComponente)
-        //    {
-        //        case "Altímetro": //parametros = new Altimetro().ObtenerParametrizacion();
-        //            break;
-        //        case "Barómetro": //parametros = new Barometro().ObtenerParametrizacion();
-        //            break;
-        //        case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
-        //            break;
-        //        case "GPS": compAbs = new Gps(listaListasPar[0][0].ToString(), listaListasPar[1][0].ToString(), listaListasPar[2], listaListasPar[3], listaListasPar[4], listaListasPar[5]);
-        //            break;
-        //        case "Termómetro": compAbs = new Termometro(listaListasPar[0][0].ToString(), listaListasPar[1][0].ToString(), listaListasPar[2], listaListasPar[3], listaListasPar[4], listaListasPar[5]);
-        //            break;
-        //        case "Velocímetro": //parametros = new Velocimetro().ObtenerParametrizacion();
-        //            break;
-        //    }
-
-        //    return compAbs;
-        //}
- 
 
         public IList<ComponenteAbstracto> GetComponentes()
         {

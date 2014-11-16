@@ -27,6 +27,10 @@ namespace DroneSystem.Dominio.Composite
 
         }
 
+        public Acelerometro()
+        { 
+        }
+
         public override IList<string> ObtenerParametrizacion()
         {
             IList<string> formacion = new List<string>();

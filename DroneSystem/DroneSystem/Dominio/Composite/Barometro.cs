@@ -50,22 +50,6 @@ namespace DroneSystem.Dominio.Composite
             double valorCalc = 1000 - (Z*(200 / 4000))*1.2; //obtengo el valor actual, una paorximación al calculo de presion atmosférica 
             nuevoValor.Add(valorCalc);
             this.valor = nuevoValor;
-
-            if (this.valor[0] > valorMax[0] || this.valor[0] < valorMin[0])
-            {
-                this.alarmado = true;
-                this.tiempoAlarmado += 1;
-            }
-            else
-            {
-                this.alarmado = false;
-                this.tiempoAlarmado = 0;
-            }
-            if (this.tiempoAlarmado > 5)
-            {
-                this.destruido = true;
-                this.dronMedido.Destruir();
-            }
         }
 
     }

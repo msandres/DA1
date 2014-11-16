@@ -17,6 +17,14 @@ namespace DroneSystem.Dominio.Fabricas
         protected IFabricaTermometro FabricaTermometro { get; set; }
         protected IFabricaVelocimetro FabricaVelocimetro { get; set; }
 
+        protected IFabricaDron FabricaDron { get; set; }
+        protected IFabricaPlanVuelo FabricaPlanVuelo { get; set; }
+
+        //Métodos
         public abstract ComponenteAbstracto CrearComponente(IList<object> configuracion);
+
+        public abstract Dron CrearDron(String nombre, String color, String control);
+
+        public abstract PlanVuelo CrearPlanDeVuelo(String nombrePlan, List<double> recX, List<double> recY, List<double> recZ, Double velX, Double velY, Double velZ);
     }
 }

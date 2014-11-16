@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DroneSystem.Persistencia.Broker
 {
-    class BrokerBarometro : BrokerAbstracto
+    public class BrokerPlanVuelo: BrokerAbstracto
     {
     }
 }

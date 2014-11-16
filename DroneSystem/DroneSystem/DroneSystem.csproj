@@ -56,6 +56,7 @@
     <Compile Include="Dominio\Fabricas\FabricaConcretaComponenteCompuesto.cs" />
     <Compile Include="Dominio\Fabricas\FabricaConcretaDron.cs" />
     <Compile Include="Dominio\Fabricas\FabricaConcretaGps.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaPlanVuelo.cs" />
     <Compile Include="Dominio\Fabricas\FabricaConcretaTermometro.cs" />
     <Compile Include="Dominio\Fabricas\FabricaConcretaVelocimetro.cs" />
     <Compile Include="Dominio\Fabricas\IFabricaAcelerometro.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Dominio\Fabricas\IFabricaComponenteCompuesto.cs" />
     <Compile Include="Dominio\Fabricas\IFabricaDron.cs" />
     <Compile Include="Dominio\Fabricas\IFabricaGps.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaPlanVuelo.cs" />
     <Compile Include="Dominio\Fabricas\IFabricaTermometro.cs" />
     <Compile Include="Dominio\Fabricas\IFabricaVelocimetro.cs" />
     <Compile Include="IPersistenciaPack\IPersistencia.cs" />
@@ -72,7 +74,9 @@
     <Compile Include="Persistencia\Broker\BrokerAltimetro.cs" />
     <Compile Include="Persistencia\Broker\BrokerBarometro.cs" />
     <Compile Include="Persistencia\Broker\BrokerComponente.cs" />
+    <Compile Include="Persistencia\Broker\BrokerDron.cs" />
     <Compile Include="Persistencia\Broker\BrokerGps.cs" />
+    <Compile Include="Persistencia\Broker\BrokerPlanVuelo.cs" />
     <Compile Include="Persistencia\Broker\BrokerTermometro.cs" />
     <Compile Include="Persistencia\Broker\BrokerVelocimetro.cs" />
     <Compile Include="Dominio\Composite\Altimetro.cs" />

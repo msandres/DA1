@@ -58,7 +58,7 @@ namespace DroneSystem.Dominio.Composite
         protected override void CalcularValor(double X, double Y, double Z)
         {
             List<double> nuevoValor = new List<double>();
-            nuevoValor.Add(X);
+            nuevoValor.Add(X);   //obtengo las coordenadas espaciales de la posicion del dron
             nuevoValor.Add(Y);
             nuevoValor.Add(Z);
             
