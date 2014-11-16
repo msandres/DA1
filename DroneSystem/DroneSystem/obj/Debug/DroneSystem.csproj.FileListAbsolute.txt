@@ -2,10 +2,6 @@ C:\ObligatorioDA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
 C:\Users\USER_ESC\Dropbox\Diseño AP1 2014\Obligatorio\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
 D:\Repo\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
 C:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
-D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
-D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe
-D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.pdb
-D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csprojResolveAssemblyReference.cache
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csproj.ResolveComReference.cache
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.AgregarPlanVuelo.resources
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.ConfiguracionVariables.resources
@@ -19,5 +15,9 @@ D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Principal.resources
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Properties.Resources.resources
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.VueloReal.resources
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csproj.GenerateResource.Cache
+D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe.config
+D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.exe
+D:\Repo\DA1\DroneSystem\DroneSystem\bin\Debug\DroneSystem.pdb
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.exe
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.pdb
+D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csprojResolveAssemblyReference.cache

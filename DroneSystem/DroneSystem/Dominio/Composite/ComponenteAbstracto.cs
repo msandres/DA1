@@ -12,6 +12,14 @@ namespace DroneSystem.Dominio.Composite
     {
         public string Marca { get; set; }
         public string Modelo { get; set; }
+
+        protected IList<double> valor;
+        protected IList<string> unidades;
+        protected IList<double> valorMax;
+        protected IList<double> valorMin;
+        protected IList<double> valorPrecision;
+
+
         public Dron dronMedido { get; set; }
        // public int IdComponente { get; set; }  //usado para identificar un componente de otro
       //  protected static int IdComponenteClase { get; set; }   //para stockear los componentes
@@ -24,20 +32,47 @@ namespace DroneSystem.Dominio.Composite
  
         // se agregan las funciones de retorno de valor y solo se controla si pasó o no el umbral de alarma
 
-        public abstract IList<Object> ObtenerValorActual(); //obtiene el valor actual del sensor 
-        public abstract IList<Object> ObtenerUnidades(); //obtiene las unidades en las que mide el sensor
-        public abstract IList<Object> ObtenerLimiteMaximo(); //obtiene el valor limite maximo
-        public abstract IList<Object> ObtenerLimiteMinimo(); //obtiene el valor limite minimo
-        public abstract IList<Object> ObtenerPrecision(); //obtiene el valor de precision
+        public virtual IList<Object> ObtenerValorActual() //obtiene el valor actual del sensor 
+        { 
+            IList<object> listaRet = this.valor.Select(o => (object)o).ToList();
+            return listaRet;
+        }
+
+        public virtual IList<Object> ObtenerUnidades() //obtiene las unidades en las que mide el sensor
+        {
+                IList<object> listaRet = this.unidades.Select(o => (object)o).ToList();
+                return listaRet;
+        }
+
+        public virtual IList<Object> ObtenerLimiteMaximo() //obtiene el valor limite maximo
+        {
+            IList<object> listaRet = this.valorMax.Select(o => (object)o).ToList();
+            return listaRet;
+        }
+        public virtual IList<Object> ObtenerLimiteMinimo() //obtiene el valor limite minimo
+        {
+            IList<object> listaRet = this.valorMin.Select(o => (object)o).ToList();
+            return listaRet;
+        }
+
+        public virtual IList<Object> ObtenerPrecision() //obtiene el valor de precision
+        {
+            IList<object> listaRet = this.valorPrecision.Select(o => (object)o).ToList();
+            return listaRet;
+        }
 
         public abstract IList<string> ObtenerParametrizacion(); //obtiene el nombre de las variables con las que cuenta el tipo, se para llenar ventanas
+        public abstract void ResetarValores(); //deja los valores por defectos de un sensor, como si los mismo no estuvieran midiendo nada
 
         public virtual bool Destruido()
         {
             return this.destruido;
         }
 
-        public abstract bool Alarmado(); //alarma cuando pasa el minimo o el maximo, es recursivo para componentes
+        public virtual bool Alarmado() //alarma cuando pasa el minimo o el maximo, es recursivo para componentes
+        {
+            return this.alarmado;
+        }
         
         //calcula el valor de la pieza en funcion de la ubicación X,Y,Z
         public virtual void SetValor(double X,double Y, double Z)

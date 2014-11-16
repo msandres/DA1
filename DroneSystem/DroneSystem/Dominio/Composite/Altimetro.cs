@@ -9,51 +9,25 @@ namespace DroneSystem.Dominio.Composite
     public class Altimetro:ComponenteAbstracto
     {
 
-        private int AltZ;
-
-        public Altimetro(string marca, string modelo)
+        public Altimetro(string marca, string modelo, IList<object> unidades, IList<object> max, IList<object> min, IList<object> precision)
         {
+            this.OID = SiguienteOID();
+            AumentarOID();
             this.Marca = marca;
             this.Modelo = modelo;
-            //IdComponenteClase++;
-            //this.IdComponente = IdComponenteClase;
+            this.unidades = unidades.Select(s => (string)s).ToList();
+            this.valorMax = max.Select(s => (double)s).ToList();
+            this.valorMin = min.Select(s => (double)s).ToList();
+            this.valorPrecision = precision.Select(s => (double)s).ToList();
+
+            ResetarValores();
         }
 
         public Altimetro()
         {         
         }
 
-        public override IList<Object> ObtenerValorActual()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-        
-        public override IList<Object> ObtenerUnidades()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-
-
-        public override IList<Object> ObtenerLimiteMaximo()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-        public override IList<Object> ObtenerLimiteMinimo()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-
-        public override IList<Object> ObtenerPrecision()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-
-        public override IList<string> ObtenerParametrizacion()
+         public override IList<string> ObtenerParametrizacion()
         {
             IList<string> formacion = new List<string>();
             formacion.Add("Marca:tipo");
@@ -65,14 +39,16 @@ namespace DroneSystem.Dominio.Composite
             return formacion;
         }
 
+         public override void ResetarValores()
+         {
+             this.valor = new List<double>();
+             this.valor.Add(0); //por ahora el valor por defecto es 0
+         }
+
         protected override void CalcularValor(double X, double Y, double Z)
         {
             throw new NotImplementedException();
         }
 
-        public override bool Alarmado()
-        {
-            return true;
-        }
     }
 }

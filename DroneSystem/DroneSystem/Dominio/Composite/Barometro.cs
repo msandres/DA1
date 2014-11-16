@@ -8,41 +8,22 @@ namespace DroneSystem.Dominio.Composite
 {
     public class Barometro:ComponenteAbstracto
     {
-
-        public Barometro(String marca)
+        public Barometro(string marca, string modelo, IList<object> unidades, IList<object> max, IList<object> min, IList<object> precision)
         {
-        }
+            this.OID = SiguienteOID();
+            AumentarOID();
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.unidades = unidades.Select(s => (string)s).ToList();
+            this.valorMax = max.Select(s => (double)s).ToList();
+            this.valorMin = min.Select(s => (double)s).ToList(); 
+            this.valorPrecision = precision.Select(s => (double)s).ToList();
+
+            ResetarValores();
+         }
 
         public Barometro()
         {         
-        }
-
-        public override IList<Object> ObtenerValorActual()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-
-        public override IList<Object> ObtenerUnidades()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-        public override IList<Object> ObtenerLimiteMaximo()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-        public override IList<Object> ObtenerLimiteMinimo()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
-        }
-
-        public override IList<Object> ObtenerPrecision()
-        {
-            IList<Object> listavalores = new List<Object>();
-            return listavalores;
         }
 
         public override IList<string> ObtenerParametrizacion()
@@ -57,14 +38,35 @@ namespace DroneSystem.Dominio.Composite
             return formacion;
         }
 
-        protected override void CalcularValor(double X, double Y, double Z)
+        public override void ResetarValores()
         {
-            throw new NotImplementedException();
+            this.valor = new List<double>();
+            this.valor.Add(1000); //por ahora el valor por defecto es 1000
         }
 
-        public override bool Alarmado()
+        protected override void CalcularValor(double X, double Y, double Z)
         {
-            return this.alarmado;
+            List<double> nuevoValor = new List<double>();
+            double valorCalc = 1000 - (Z*(200 / 4000))*1.2; //obtengo el valor actual, una paorximación al calculo de presion atmosférica 
+            nuevoValor.Add(valorCalc);
+            this.valor = nuevoValor;
+
+            if (this.valor[0] > valorMax[0] || this.valor[0] < valorMin[0])
+            {
+                this.alarmado = true;
+                this.tiempoAlarmado += 1;
+            }
+            else
+            {
+                this.alarmado = false;
+                this.tiempoAlarmado = 0;
+            }
+            if (this.tiempoAlarmado > 5)
+            {
+                this.destruido = true;
+                this.dronMedido.Destruir();
+            }
         }
+
     }
 }

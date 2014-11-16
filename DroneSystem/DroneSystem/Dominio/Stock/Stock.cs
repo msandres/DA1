@@ -58,7 +58,7 @@ namespace DroneSystem.Dominio.Stock
             listaComponentes.Add(comp);
             Notify();
 
-            Broker.BrokerAbstracto.CrearBroker(comp).Guardar(comp);
+           // Broker.BrokerAbstracto.CrearBroker(comp).Guardar(comp);
             
         }
 

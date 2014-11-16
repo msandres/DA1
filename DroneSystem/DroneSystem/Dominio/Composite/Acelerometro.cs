@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace DroneSystem.Dominio.Composite
 {
-    public class Velocimetro : ComponenteAbstracto
+    public class Acelerometro:ComponenteAbstracto
     {
+        private double AnteriorVelX;
+        private double AnteriorVelY;
+        private double AnteriorVelZ;
 
-        private double AnteriorX;
-        private double AnteriorY;
-        private double AnteriorZ;
-
-        public Velocimetro(string marca, string modelo, IList<object> unidades, IList<object> max, IList<object> min, IList<object> precision)
+        public Acelerometro(string marca, string modelo, IList<object> unidades, IList<object> max, IList<object> min, IList<object> precision)
         {
             this.OID = SiguienteOID();
             AumentarOID();
@@ -26,10 +25,6 @@ namespace DroneSystem.Dominio.Composite
 
             ResetarValores();
 
-        }
-
-        public Velocimetro()
-        {         
         }
 
         public override IList<string> ObtenerParametrizacion()
@@ -59,37 +54,37 @@ namespace DroneSystem.Dominio.Composite
             this.valor.Add(0); //por ahora el valor por defecto es 0 
             this.valor.Add(0); //por ahora el valor por defecto es 0
 
-            this.AnteriorX = -1;
-            this.AnteriorY = -1;
-            this.AnteriorZ = -1;
+            this.AnteriorVelX = -1;
+            this.AnteriorVelY = -1;
+            this.AnteriorVelZ = -1;
         }
 
         protected override void CalcularValor(double X, double Y, double Z)
         {
             List<double> nuevoValor = new List<double>();
 
-            if (this.AnteriorX < 0)  //cuando comienza a medir
+            if (this.AnteriorVelX < 0)  //cuando comienza a medir, y tromo en cuenta que sale del reposo
             {
-                this.AnteriorX = 0;
-                this.AnteriorY = 0;
-                this.AnteriorZ = 0;
-                nuevoValor.Add(X);
-                nuevoValor.Add(Y);
-                nuevoValor.Add(Z);
+                this.AnteriorVelX = 0;
+                this.AnteriorVelY = 0;
+                this.AnteriorVelZ = 0;
+                nuevoValor.Add(0);
+                nuevoValor.Add(0);
+                nuevoValor.Add(0);
             }
-            else 
-            {  //tomo en cuenta un segundo, por eso solo hago la diferencia
-                nuevoValor.Add(Math.Abs(X - this.AnteriorX));
-                nuevoValor.Add(Math.Abs(Y - this.AnteriorY));
-                nuevoValor.Add(Math.Abs(Z - this.AnteriorZ));
-                this.AnteriorX = X;
-                this.AnteriorY = Y;
-                this.AnteriorZ = Z;
+            else
+            {  //tomo en cuenta un segundo, por eso solo hago la diferencia de velocidades y no divido por el tiempo
+                nuevoValor.Add(Math.Abs(X - this.AnteriorVelX));
+                nuevoValor.Add(Math.Abs(Y - this.AnteriorVelY));
+                nuevoValor.Add(Math.Abs(Z - this.AnteriorVelZ));
+                this.AnteriorVelX = Math.Abs(X - this.AnteriorVelX);
+                this.AnteriorVelY = Math.Abs(Y - this.AnteriorVelY);
+                this.AnteriorVelZ = Math.Abs(Z - this.AnteriorVelZ);
             }
 
             this.valor = nuevoValor;
         }
 
-
+      
     }
 }

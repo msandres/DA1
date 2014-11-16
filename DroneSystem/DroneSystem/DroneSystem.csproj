@@ -47,6 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Composite\Acelerometro.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaAbstracta.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcreta.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaAcelerometro.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaAltimetro.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaBarometro.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaComponenteCompuesto.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaDron.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaGps.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaTermometro.cs" />
+    <Compile Include="Dominio\Fabricas\FabricaConcretaVelocimetro.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaAcelerometro.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaAltimetro.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaBarometro.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaComponenteCompuesto.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaDron.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaGps.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaTermometro.cs" />
+    <Compile Include="Dominio\Fabricas\IFabricaVelocimetro.cs" />
     <Compile Include="IPersistenciaPack\IPersistencia.cs" />
     <Compile Include="IPersistenciaPack\OPersistente.cs" />
     <Compile Include="Persistencia\Broker\BrokerAbstracto.cs" />
@@ -206,9 +225,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dominio\Fabricas\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

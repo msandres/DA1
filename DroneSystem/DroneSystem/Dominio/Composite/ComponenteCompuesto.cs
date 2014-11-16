@@ -13,6 +13,8 @@ namespace DroneSystem.Dominio.Composite
 
         public ComponenteCompuesto()
         {
+            this.OID = SiguienteOID();
+            AumentarOID();
             //IdComponenteClase++;
             //this.IdComponente = IdComponenteClase;
             listacomponentes = new List<ComponenteAbstracto>();
@@ -68,6 +70,14 @@ namespace DroneSystem.Dominio.Composite
         {
             IList<string> formacion = new List<string>();
             return formacion;
+        }
+
+        public override void ResetarValores()
+        {
+           foreach (ComponenteAbstracto comp in listacomponentes)
+           {
+               comp.ResetarValores();
+           }
         }
 
         protected override void CalcularValor(double X, double Y, double Z)

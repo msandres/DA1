@@ -40,6 +40,7 @@ namespace DroneSystem.Ventanas
                 foreach (List<string> lista in conf)
                 {
                     ListBox lb = new ListBox();
+                    lb.SelectionMode = SelectionMode.None;
                     lb.DataSource = lista;
                     lb.Name = "listaB" + idL;
                     lb.Location = new Point(15 * idL, 50 * nivel);

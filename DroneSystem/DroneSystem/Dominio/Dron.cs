@@ -152,6 +152,13 @@ namespace DroneSystem
         {
             this.enMovimiento = false;
             timeFunc.Enabled = false;
+
+            //capaz que va el log antes
+
+            foreach (ComponenteAbstracto comp in listcomponentes)
+            {
+                comp.ResetarValores();
+            }
         }
 
         private void Funcionamiento(Object myObject, EventArgs myEventArgs)
