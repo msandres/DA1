@@ -2,6 +2,7 @@
 using DroneSystem.Persistencia;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,9 +49,18 @@ namespace DroneSystem.Persistencia.Broker
 
         }
 
-        public virtual void Guardar(OPersistente objP)
+        public virtual void  Guardar(OPersistente objP)
+        {}
+
+        public virtual void Modificar(OPersistente objP)
+        { }
+
+        public virtual void Eliminar(OPersistente objP)
+        { }
+        public virtual DataTable Cargar()
         {
- 
+            DataTable retorno = new DataTable();
+            return retorno;
         }
     }
 }

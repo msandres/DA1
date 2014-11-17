@@ -2,6 +2,7 @@
 using DroneSystem.IPersistenciaPack;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace DroneSystem.Persistencia.Broker
              int dronMedido = -1;
              try
              {
-                 dronMedido = term.dronMedido.GetNroSerie();  //arreglar el null
+                 dronMedido = term.dronMedido.GetOID();  //arreglar el null
              }
              catch
              { 
@@ -62,9 +63,27 @@ namespace DroneSystem.Persistencia.Broker
             string insert2 = String.Format("insert into [DRONSYSTEM].[dbo].[Medicion] values({0},{1},'{2}','{3}',{4},{5},{6})", oid, 1, nombreVar, unidad, max, min, precision);
 
             //conexion = ConexBD.GetInstancia();
-            conexion.EjecutarSentencia(insert1);
-            conexion.EjecutarSentencia(insert2);
+             conexion.EjecutarSentencia(insert1);
+             conexion.EjecutarSentencia(insert2);
 
+                }
+
+        public override void Modificar(OPersistente objP)
+        {
+            Termometro term = (Termometro)objP;
+
+            int oid = term.GetOID();
+            string  dronMedido = "null";
+            try
+            {
+                dronMedido = term.dronMedido.GetOID().ToString(); 
+            }
+            catch
+            {
+            }
+            string updateComp = "update [DRONSYSTEM].[dbo].[ComponenteAbstacto] set DronMedido=" + dronMedido + " where OID=" + oid;
+            conexion.EjecutarSentencia(updateComp);
         }
+
     }
 }

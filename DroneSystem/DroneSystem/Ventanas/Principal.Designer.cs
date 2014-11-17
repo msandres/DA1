@@ -34,12 +34,11 @@
             this.lbComonentesDisp = new System.Windows.Forms.Label();
             this.lbDronesDisp = new System.Windows.Forms.Label();
             this.dataGridComponentes = new System.Windows.Forms.DataGridView();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModeloCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridDrones = new System.Windows.Forms.DataGridView();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Menu = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cargarDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.MArchivoCerrar = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modelosDisponiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,9 +50,9 @@
             this.realToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MAyudaAcerdaDe = new System.Windows.Forms.ToolStripMenuItem();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModeloCom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MArchivoCerrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridComponentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDrones)).BeginInit();
@@ -115,6 +114,16 @@
             this.dataGridComponentes.Size = new System.Drawing.Size(385, 297);
             this.dataGridComponentes.TabIndex = 4;
             // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            // 
+            // ModeloCom
+            // 
+            this.ModeloCom.HeaderText = "Modelo";
+            this.ModeloCom.Name = "ModeloCom";
+            // 
             // dataGridDrones
             // 
             this.dataGridDrones.AllowUserToAddRows = false;
@@ -129,6 +138,11 @@
             this.dataGridDrones.Size = new System.Drawing.Size(259, 297);
             this.dataGridDrones.TabIndex = 3;
             // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            // 
             // Menu
             // 
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -141,35 +155,6 @@
             this.Menu.Size = new System.Drawing.Size(782, 24);
             this.Menu.TabIndex = 2;
             this.Menu.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cargarDatosToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.MArchivoCerrar});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
-            this.toolStripMenuItem1.Text = "Archivo";
-            // 
-            // cargarDatosToolStripMenuItem
-            // 
-            this.cargarDatosToolStripMenuItem.Name = "cargarDatosToolStripMenuItem";
-            this.cargarDatosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cargarDatosToolStripMenuItem.Text = "Cargar Datos";
-            this.cargarDatosToolStripMenuItem.Click += new System.EventHandler(this.cargarDatosToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // MArchivoCerrar
-            // 
-            this.MArchivoCerrar.Name = "MArchivoCerrar";
-            this.MArchivoCerrar.Size = new System.Drawing.Size(152, 22);
-            this.MArchivoCerrar.Text = "Cerrar";
-            this.MArchivoCerrar.Click += new System.EventHandler(this.MArchivoCerrar_Click);
             // 
             // verToolStripMenuItem
             // 
@@ -252,20 +237,26 @@
             this.MAyudaAcerdaDe.Text = "Acerca de DronSystem";
             this.MAyudaAcerdaDe.Click += new System.EventHandler(this.MAyudaAcerdaDe_Click);
             // 
-            // Marca
+            // toolStripSeparator1
             // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
-            // ModeloCom
+            // MArchivoCerrar
             // 
-            this.ModeloCom.HeaderText = "Modelo";
-            this.ModeloCom.Name = "ModeloCom";
+            this.MArchivoCerrar.Name = "MArchivoCerrar";
+            this.MArchivoCerrar.Size = new System.Drawing.Size(152, 22);
+            this.MArchivoCerrar.Text = "Cerrar";
+            this.MArchivoCerrar.Click += new System.EventHandler(this.MArchivoCerrar_Click);
             // 
-            // Modelo
+            // toolStripMenuItem1
             // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.MArchivoCerrar});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
+            this.toolStripMenuItem1.Text = "Archivo";
             // 
             // Principal
             // 
@@ -293,10 +284,6 @@
         private System.Windows.Forms.Label reloj;
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.MenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cargarDatosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem MArchivoCerrar;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modelosDisponiblesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -315,6 +302,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModeloCom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem MArchivoCerrar;
     }
 }
 

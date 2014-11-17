@@ -27,13 +27,18 @@ namespace DroneSystem.IPersistenciaPack
             return this.OID;
         }
 
-        public void Guardarse()
+        public void SetOID(int oidSet)
         {
-          
+            this.OID = oidSet;
         }
 
-        public void Cargarse()
-        { 
-        }
+        //public void Guardarse()
+        //{
+
+        //}
+
+        //public void Cargarse()
+        //{
+        //}
     }
 }

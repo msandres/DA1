@@ -63,7 +63,7 @@
             this.dataGridDefinicion.Location = new System.Drawing.Point(12, 188);
             this.dataGridDefinicion.Name = "dataGridDefinicion";
             this.dataGridDefinicion.Size = new System.Drawing.Size(444, 152);
-            this.dataGridDefinicion.TabIndex = 11;
+            this.dataGridDefinicion.TabIndex = 5;
             // 
             // lbComp
             // 
@@ -106,28 +106,28 @@
             this.txtBControl.Location = new System.Drawing.Point(147, 82);
             this.txtBControl.Name = "txtBControl";
             this.txtBControl.Size = new System.Drawing.Size(100, 20);
-            this.txtBControl.TabIndex = 16;
+            this.txtBControl.TabIndex = 3;
             // 
             // txtBColor
             // 
             this.txtBColor.Location = new System.Drawing.Point(147, 57);
             this.txtBColor.Name = "txtBColor";
             this.txtBColor.Size = new System.Drawing.Size(100, 20);
-            this.txtBColor.TabIndex = 17;
+            this.txtBColor.TabIndex = 2;
             // 
             // txtBNombre
             // 
             this.txtBNombre.Location = new System.Drawing.Point(147, 30);
             this.txtBNombre.Name = "txtBNombre";
             this.txtBNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtBNombre.TabIndex = 18;
+            this.txtBNombre.TabIndex = 1;
             // 
             // txtBPrecio
             // 
             this.txtBPrecio.Location = new System.Drawing.Point(147, 108);
             this.txtBPrecio.Name = "txtBPrecio";
             this.txtBPrecio.Size = new System.Drawing.Size(100, 20);
-            this.txtBPrecio.TabIndex = 20;
+            this.txtBPrecio.TabIndex = 4;
             // 
             // lblPrecio
             // 

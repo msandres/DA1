@@ -108,6 +108,11 @@ namespace DroneSystem.Dominio
             stock.AgregarDron(nuevoDron);
         }
 
+        public void EliminarDron(Dron dron)
+        {
+            stock.EliminarDron(dron);
+        }
+
         public IList<Dron> GetDrones()
         {
             return stock.GetDrones();

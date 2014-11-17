@@ -66,6 +66,7 @@ namespace DroneSystem.Ventanas
         private void btnElimDisDron_Click(object sender, EventArgs e)
         {
             EliminarFilasDataGrid(dataGridDisDron);
+            Actualizar();
  
         }
 
@@ -89,6 +90,7 @@ namespace DroneSystem.Ventanas
         private void btnElimDisComp_Click(object sender, EventArgs e)
         {
             EliminarFilasDataGrid(dataGridDisComp);
+            Actualizar();
         }
 
 
@@ -127,6 +129,7 @@ namespace DroneSystem.Ventanas
                 }
                foreach (int id in seleccion)
                 {
+                    Fachada.GetInstancia().EliminarDron(Fachada.GetInstancia().GetDrones()[id]);
                     dataGridDisp.Rows.RemoveAt(id);
                     dataGridDisp.Refresh();
                 }

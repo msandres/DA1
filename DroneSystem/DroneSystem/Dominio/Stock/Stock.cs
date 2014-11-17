@@ -41,7 +41,7 @@ namespace DroneSystem.Dominio.Stock
             listaPlanesVuelo.Add(plan);
             Notify();
 
-       //     BrokerAbstracto.CrearBroker(plan).Guardar(plan);
+            BrokerAbstracto.CrearBroker(plan).Guardar(plan);
         }
 
         public IList<PlanVuelo> GetPlanesVuelo()
@@ -53,14 +53,15 @@ namespace DroneSystem.Dominio.Stock
         {
             listaPlanesVuelo.Remove(plan);
             Notify();
+            BrokerAbstracto.CrearBroker(plan).Eliminar(plan);
         }
 
         public void AgregarComponente(ComponenteAbstracto comp)
         {
             listaComponentes.Add(comp);
             Notify();
-
-        // BrokerAbstracto.CrearBroker(comp).Guardar(comp);
+           
+         BrokerAbstracto.CrearBroker(comp).Guardar(comp);
             
         }
 
@@ -91,6 +92,12 @@ namespace DroneSystem.Dominio.Stock
         {
             listaDrones.Remove(dron);
             Notify();
+            foreach (ComponenteAbstracto comp in dron.GetComponentes())
+            {
+                this.listaComponentes.Add(comp);
+            }
+            BrokerAbstracto.CrearBroker(dron).Eliminar(dron);
+
         }
 
         public override void AgregarOb(IObserver observer)

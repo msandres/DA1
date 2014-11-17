@@ -31,7 +31,14 @@ namespace DroneSystem.Persistencia
             conexion.Open();
             SqlCommand comand = new SqlCommand(sentencia, conexion);
 
-            int cant = comand.ExecuteNonQuery();
+            try
+            {
+                int cant = comand.ExecuteNonQuery();
+            }
+            catch (Exception e) 
+            {
+               
+            }
 
             conexion.Close();
         }

@@ -20,3 +20,4 @@ D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.Ventanas.VueloReal.res
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csproj.GenerateResource.Cache
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.exe
 D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.pdb
+D:\Repo\DA1\DroneSystem\DroneSystem\obj\Debug\DroneSystem.csprojResolveAssemblyReference.cache

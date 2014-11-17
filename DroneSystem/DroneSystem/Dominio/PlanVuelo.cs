@@ -38,6 +38,11 @@ namespace DroneSystem.Dominio
 
         }
 
+        public PlanVuelo()
+        { 
+
+        }
+
         public string GetNombre()
         {
             return this.nombre;

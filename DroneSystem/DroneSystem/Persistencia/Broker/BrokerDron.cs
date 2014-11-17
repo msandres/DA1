@@ -1,4 +1,5 @@
-﻿using DroneSystem.IPersistenciaPack;
+﻿using DroneSystem.Dominio.Composite;
+using DroneSystem.IPersistenciaPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,28 @@ namespace DroneSystem.Persistencia.Broker
             string insertDron = String.Format("insert into [DRONSYSTEM].[dbo].[Dron] values({0},{1},'{2}','{3}','{4}',{5},{6})", 
                                             oid,nroSerie, nombre, color, control, precio,funcionamiento);
             conexion.EjecutarSentencia(insertDron);
+
+            foreach (ComponenteAbstracto comp in dron.GetComponentes())
+            {
+                BrokerAbstracto.CrearBroker(comp).Modificar(comp);
+            }
+        }
+
+        public override void Eliminar(OPersistente objP)
+        {
+            Dron dron = (Dron)objP;
+
+            int oid = dron.GetOID();
+
+            foreach (ComponenteAbstracto comp in dron.GetComponentes())
+            {
+                comp.dronMedido = null;
+                BrokerAbstracto.CrearBroker(comp).Modificar(comp);
+            }
+
+            string deletePlan = " delete FROM [DRONSYSTEM].[dbo].[Dron] where OIDDron=" + oid;
+            conexion.EjecutarSentencia(deletePlan);
+
         }
     }
 }

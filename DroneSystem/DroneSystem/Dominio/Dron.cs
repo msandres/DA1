@@ -90,6 +90,11 @@ namespace DroneSystem
             return this.serieDron;
         }
 
+        public void SetNroSerie(int serie)
+        {
+            this.serieDron = serie;
+        }
+
         public string GetColor()
         {
             return this.color;
