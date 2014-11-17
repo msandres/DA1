@@ -8,9 +8,9 @@ namespace DroneSystem.Dominio.Fabricas
 {
     public class FabricaConcretaDron:IFabricaDron
     {
-        public Dron CrearDisenioDron(String nombre, String color, String control)
+        public Dron CrearDisenioDron(String nombre, String color, String control,Double precio)
         {
-            return new Dron(nombre, color, control);
+            return new Dron(nombre, color, control,precio);
         }
     }
 }

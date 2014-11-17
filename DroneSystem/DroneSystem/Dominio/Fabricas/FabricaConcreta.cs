@@ -85,9 +85,9 @@ namespace DroneSystem.Dominio.Fabricas
         }
 
 
-        public override Dron CrearDron(String nombre, String color, String control)
+        public override Dron CrearDron(String nombre, String color, String control,Double precio)
         {
-            return  FabricaDron.CrearDisenioDron(nombre, color, control);
+            return  FabricaDron.CrearDisenioDron(nombre, color, control,precio);
         }
 
 

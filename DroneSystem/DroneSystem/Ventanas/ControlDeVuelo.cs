@@ -16,7 +16,7 @@ namespace DroneSystem.Ventanas
 {
     public partial class ControlDeVuelo : Form, IObserver
     {
-        bool destruido = false;
+        bool finAutomatico = false;
 
         public ControlDeVuelo()
         {
@@ -27,7 +27,7 @@ namespace DroneSystem.Ventanas
         private void DibujarInicial()
         {
             List<List<string>> conf = Fachada.GetInstancia().InfoDronActivo();
-            if (conf.Count>0)// != null)
+            if (Fachada.GetInstancia().DronVolando())
             {
                 foreach (Control con in this.Controls)
                 {
@@ -64,57 +64,19 @@ namespace DroneSystem.Ventanas
             }
             else
             {
-              //  Fachada.GetInstancia().RemoverObserverDron(this);
-                MessageBox.Show("Vuelo Finalizado, Dron DESTRUIDO");
-                destruido = true;
+                if (Fachada.GetInstancia().DronFuncionando())
+                {
+                    MessageBox.Show(this,"Vuelo Finalizado, Dron llegó a destino");
+                    finAutomatico = true;
+                }
+                else
+                {
+                    MessageBox.Show(this,"Vuelo Finalizado, Dron DESTRUIDO");
+                    finAutomatico = true;
+                }
+                
             }
-            //listBComDron.Refresh();
-
-            //int idNivel1=0;
-            //foreach (List<string> lista in conf)
-            //{
-
-            //        Label lb = new Label();
-            //        lb.Text = lista[0];
-            //        lb.Name = "label" + idNivel1;
-            //        lb.Location = new Point(20, 50);
-            //        lb.Visible = true;
-            //        this.Controls.Add(lb);
-
-            //        Label lb1 = new Label();
-            //        lb1.Text = lista[1];
-            //        lb1.Name = "label1" + idNivel1;
-            //        lb1.Location = new Point(200, 50);
-            //        lb1.Visible = true;
-            //        this.Controls.Add(lb1);
-
-            //        Label lb2 = new Label();
-            //        lb2.Text = lista[2];
-            //        lb2.Name = "label2" + idNivel1;
-            //        lb2.Location = new Point(lista[1].Length + lista[0].Length + 20, 50);
-            //        lb2.Visible = true;
-            //        this.Controls.Add(lb2);
-             
-            //    if (idNivel1 > 0)
-            //    {
-            //        int idNivel2 = 0;
-            //        //foreach ()
-            //        //{
-            //        //}
-            //    }
-                
-                
-            //}
-
-            //Label lb3 = new Label();
-            //lb3.Text = "hola";
-            //lb3.Name = "label33" + "020";
-            //lb3.Location=new Point(40, 60);
-            //lb3.Visible = true;
-            //this.Controls.Add(lb3);
-            
-
-        }
+         }
 
         public void Actualizar()
         {
@@ -127,7 +89,7 @@ namespace DroneSystem.Ventanas
         {
             Fachada.GetInstancia().RemoverObserverDron(this);
             Fachada.GetInstancia().TerminarVueloDron();
-            if (!destruido)
+            if (!finAutomatico)
             MessageBox.Show("Vuelo Finalizado por el Usuario");
             this.Close();
         }

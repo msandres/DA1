@@ -1,5 +1,6 @@
 ﻿using DroneSystem.Dominio.Composite;
 using DroneSystem.PatronesExtras.Observer;
+using DroneSystem.Persistencia.Broker;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,6 @@ namespace DroneSystem.Dominio.Stock
             listaDrones = new List<Dron>();
             listaComponentes = new List<ComponenteAbstracto>();
             Observers = new List<IObserver>();
-
         }
 
         public static Stock GetInstancia()
@@ -40,6 +40,8 @@ namespace DroneSystem.Dominio.Stock
         {
             listaPlanesVuelo.Add(plan);
             Notify();
+
+       //     BrokerAbstracto.CrearBroker(plan).Guardar(plan);
         }
 
         public IList<PlanVuelo> GetPlanesVuelo()
@@ -58,7 +60,7 @@ namespace DroneSystem.Dominio.Stock
             listaComponentes.Add(comp);
             Notify();
 
-           // Broker.BrokerAbstracto.CrearBroker(comp).Guardar(comp);
+        // BrokerAbstracto.CrearBroker(comp).Guardar(comp);
             
         }
 
@@ -76,6 +78,8 @@ namespace DroneSystem.Dominio.Stock
         {
             listaDrones.Add(dron);
             Notify();
+
+            BrokerAbstracto.CrearBroker(dron).Guardar(dron);
         }
 
         public IList<Dron> GetDrones()

@@ -133,7 +133,7 @@ namespace DroneSystem.Dominio.Persistencia
             string control = "Remoto Genérico";
             List<int> seleccion = new List<int>();
             seleccion.Add(1);
-            Fachada.GetInstancia().CrearDron(nombre, color, control, seleccion);
+            Fachada.GetInstancia().CrearDron(nombre, color, control,0, seleccion);
 
             nombre = "Dron 2 (Termometros y GPS)";
             color = "Azul";
@@ -141,7 +141,7 @@ namespace DroneSystem.Dominio.Persistencia
             seleccion = new List<int>();
             seleccion.Add(4);
             seleccion.Add(5);
-            Fachada.GetInstancia().CrearDron(nombre, color, control, seleccion);
+            Fachada.GetInstancia().CrearDron(nombre, color, control,0, seleccion);
 
             //-------------------------------------------------------
             //Agrego Planes

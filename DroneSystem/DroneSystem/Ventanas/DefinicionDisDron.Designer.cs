@@ -38,6 +38,8 @@
             this.txtBControl = new System.Windows.Forms.TextBox();
             this.txtBColor = new System.Windows.Forms.TextBox();
             this.txtBNombre = new System.Windows.Forms.TextBox();
+            this.txtBPrecio = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDefinicion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,11 +122,29 @@
             this.txtBNombre.Size = new System.Drawing.Size(100, 20);
             this.txtBNombre.TabIndex = 18;
             // 
+            // txtBPrecio
+            // 
+            this.txtBPrecio.Location = new System.Drawing.Point(147, 108);
+            this.txtBPrecio.Name = "txtBPrecio";
+            this.txtBPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtBPrecio.TabIndex = 20;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(16, 115);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio.TabIndex = 19;
+            this.lblPrecio.Text = "Precio";
+            // 
             // DefinicionDisDron
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 439);
+            this.Controls.Add(this.txtBPrecio);
+            this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.txtBNombre);
             this.Controls.Add(this.txtBColor);
             this.Controls.Add(this.txtBControl);
@@ -155,5 +175,7 @@
         private System.Windows.Forms.TextBox txtBControl;
         private System.Windows.Forms.TextBox txtBColor;
         private System.Windows.Forms.TextBox txtBNombre;
+        private System.Windows.Forms.TextBox txtBPrecio;
+        private System.Windows.Forms.Label lblPrecio;
     }
 }

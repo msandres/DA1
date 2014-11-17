@@ -34,6 +34,7 @@ namespace DroneSystem.Ventanas
                 string nombre = txtBNombre.Text;
                 string color = txtBColor.Text;
                 string control = txtBControl.Text;
+                double precio = Double.Parse(txtBPrecio.Text);
                 List<int> seleccion = new List<int>();
                 int idDGS = 0;
                 int cantSeleccionados = 0;
@@ -48,7 +49,7 @@ namespace DroneSystem.Ventanas
                     idDGS++;
                 }
 
-                Fachada.GetInstancia().CrearDron(nombre,color,control,seleccion);
+                Fachada.GetInstancia().CrearDron(nombre,color,control,precio,seleccion);
                 this.Close();
             }
                

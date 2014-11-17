@@ -19,13 +19,33 @@ namespace DroneSystem.Persistencia.Broker
         public static BrokerAbstracto CrearBroker(OPersistente objP)
         {
             BrokerAbstracto BrokerRetorno = null;
-            if (objP.GetType().ToString().Contains("Termometro")) 
+            string tipoObjeto = objP.GetType().ToString().Split('.')[objP.GetType().ToString().Split('.').Length - 1];
+
+            switch (tipoObjeto)
             {
-                BrokerRetorno = new BrokerTermometro();
-                BrokerRetorno.conexion = ConexBD.GetInstancia();
+                case "Acelerometro": BrokerRetorno = new BrokerAcelerometro();
+                    break;
+                case "Altimetro": BrokerRetorno = new BrokerAltimetro();
+                    break;
+                case "Barometro": BrokerRetorno = new BrokerBarometro();
+                    break;
+                case "Componente Compuesto": BrokerRetorno = new BrokerComponente();
+                    break;
+                case "Gps": BrokerRetorno = new BrokerGps();
+                    break;
+                case "Termometro": BrokerRetorno = new BrokerTermometro();
+                    break;
+                case "Velocimetro": BrokerRetorno = new BrokerVelocimetro();
+                    break;
+                case "PlanVuelo": BrokerRetorno = new BrokerPlanVuelo();
+                    break;
+                case "Dron": BrokerRetorno = new BrokerDron();
+                    break;
             }
 
+            BrokerRetorno.conexion = ConexBD.GetInstancia();
             return BrokerRetorno;
+
         }
 
         public virtual void Guardar(OPersistente objP)

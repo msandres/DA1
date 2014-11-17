@@ -15,6 +15,8 @@ namespace DroneSystem.Dominio
         private static Fachada instancia;
         private IStock stock;
         private FabricaAbstracta fabrica;
+        private static Dron dronActivo = null;
+
 
         private Fachada()
         {
@@ -91,9 +93,9 @@ namespace DroneSystem.Dominio
             stock.EliminarPlanVuelo(plan);
         }
 
-        public void CrearDron(string nombre, string color, string control, List<int> idComponentes)
+        public void CrearDron(string nombre, string color, string control, double precio, List<int> idComponentes)
         {
-            Dron nuevoDron = fabrica.CrearDron(nombre, color, control);
+            Dron nuevoDron = fabrica.CrearDron(nombre, color, control,precio);
             List<ComponenteAbstracto> componentesDron = new List<ComponenteAbstracto>();
 
             foreach (int id in idComponentes)
@@ -113,13 +115,17 @@ namespace DroneSystem.Dominio
 
         private Dron GetDronActivo()
         {
-            Dron retornoDron = null;
-            foreach (Dron dron in stock.GetDrones())
-            {
-                if (dron.EnMovimiento())
-                    retornoDron = dron;
-            }
-            return retornoDron;
+            return dronActivo;
+        }
+
+        public Boolean DronFuncionando()
+        {
+            return dronActivo.Funciona();
+        }
+
+        public Boolean DronVolando()
+        {
+            return dronActivo.EnMovimiento();
         }
 
         public void TerminarVueloDron()
@@ -128,9 +134,15 @@ namespace DroneSystem.Dominio
                 GetDronActivo().DetenerVuelo();
         }
 
+        public void LiberarDronActivo()
+        {
+            dronActivo = null;
+        }
+
         public void IniciarVuelo(int iDdron, int iDplan)
         {
             GetDrones()[iDdron].IniciarVuelo(GetPlanesDeVuelo()[iDplan]);
+            dronActivo = GetDrones()[iDdron];
         }
 
         //informacion para que las ventanas muestren dinamicamente los valores

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DroneSystem.IPersistenciaPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DroneSystem.Dominio
 {
-    public class PlanVuelo:IComparable
+    public class PlanVuelo : OPersistente, IComparable
     {
         private string nombre;
 
@@ -21,6 +22,10 @@ namespace DroneSystem.Dominio
         public PlanVuelo(string nombrePlan ,List<double> recX,List<double> recY,List<double> recZ,
             double velX, double velY, double velZ)
         {
+
+            this.OID = SiguienteOID();
+            AumentarOID();
+
             this.nombre = nombrePlan;
 
             this.recorridoX = recX;

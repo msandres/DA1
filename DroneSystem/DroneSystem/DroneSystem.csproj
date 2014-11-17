@@ -71,6 +71,7 @@
     <Compile Include="IPersistenciaPack\IPersistencia.cs" />
     <Compile Include="IPersistenciaPack\OPersistente.cs" />
     <Compile Include="Persistencia\Broker\BrokerAbstracto.cs" />
+    <Compile Include="Persistencia\Broker\BrokerAcelerometro.cs" />
     <Compile Include="Persistencia\Broker\BrokerAltimetro.cs" />
     <Compile Include="Persistencia\Broker\BrokerBarometro.cs" />
     <Compile Include="Persistencia\Broker\BrokerComponente.cs" />

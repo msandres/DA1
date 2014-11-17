@@ -6,34 +6,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
+using DroneSystem.Persistencia;
 
 namespace DroneSystem.Dominio.Persistencia
 {
     public class CargaDatosBaseSQL:ICargaDatos
     {
+        protected ConexBD conexion;
 
         public void Cargar()
         {
-            string constr = ConfigurationManager.ConnectionStrings["BASELOCAL"].ToString(); 
-            SqlConnection con = new SqlConnection(constr);
-            con.Open();
-            SqlCommand comand = new SqlCommand("SELECT *  FROM [DRONSYSTEM].[dbo].[ComponenteAbstacto]", con);
+            ////string constr = ConfigurationManager.ConnectionStrings["BASELOCAL"].ToString(); 
+            ////SqlConnection con = new SqlConnection(constr);
+            ////con.Open();
+            //SqlCommand comand = new SqlCommand("SELECT *  FROM [DRONSYSTEM].[dbo].[ComponenteAbstacto]", conexion);
 
-            //int cant = comand.ExecuteNonQuery();
+            ////int cant = comand.ExecuteNonQuery();
 
-            SqlDataReader dr = comand.ExecuteReader();
+            //SqlDataReader dr = comand.ExecuteReader();
             
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
 
-            dt.Load(dr);
+            //dt.Load(dr);
 
-            foreach (DataRow row in dt.Rows)
-            {
-                Console.WriteLine(row[0] + " " + row[1] + " " + row[2]);
-            }
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    Console.WriteLine(row[0] + " " + row[1] + " " + row[2]);
+            //}
+            //con.Close();
 
-            con.Close();
+            //Cargar Planes de Vuelo
+
+
+            //Cargar Sensores
+
         }
-
     }
 }

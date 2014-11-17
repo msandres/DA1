@@ -1,6 +1,5 @@
 ﻿using DroneSystem.Dominio;
 using DroneSystem.Dominio.Composite;
-using DroneSystem.IPersistenciaPack;
 using DroneSystem.PatronesExtras.Observer;
 using System;
 using System.Collections.Generic;
@@ -39,13 +38,17 @@ namespace DroneSystem
         private List<double> recorridoZ;
 
         //creo el dron por defecto en la posicion 0,0,0 y con velocidad de avance 1,1,1 y con la lista vacia
-        public Dron(string nombreDron, string colorDron, string modeloControl)
+        public Dron(string nombreDron, string colorDron, string modeloControl,double precioDron)
         {
+            this.OID = SiguienteOID();
+            AumentarOID();
+
             serieClase++;  //aumento la serie global del dron
             this.Nombre = nombreDron;
             this.serieDron = serieClase;
             this.color = colorDron;
             this.controlRemoto = modeloControl;
+            this.precio = precioDron;
             this.funcionando = true;
             this.enMovimiento = false;
 

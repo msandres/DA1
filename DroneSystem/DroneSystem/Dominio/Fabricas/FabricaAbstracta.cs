@@ -23,7 +23,7 @@ namespace DroneSystem.Dominio.Fabricas
         //Métodos
         public abstract ComponenteAbstracto CrearComponente(IList<object> configuracion);
 
-        public abstract Dron CrearDron(String nombre, String color, String control);
+        public abstract Dron CrearDron(String nombre, String color, String control,Double precio);
 
         public abstract PlanVuelo CrearPlanDeVuelo(String nombrePlan, List<double> recX, List<double> recY, List<double> recZ, Double velX, Double velY, Double velZ);
     }
