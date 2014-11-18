@@ -41,7 +41,7 @@ namespace DroneSystem.Dominio
                     break;
                 case "Barómetro": parametros = new Barometro().ObtenerParametrizacion();
                     break;
-                case "Componente Compuesto": parametros = GetMarcaModeloComponentes();
+                case "Componente Compuesto": parametros = GetOIDMarcaModeloComponentes();
                     break;
                 case "GPS": parametros = new Gps().ObtenerParametrizacion();
                     break;
@@ -209,13 +209,13 @@ namespace DroneSystem.Dominio
         }
 
         //es usado para las ventanas
-        public IList<string> GetMarcaModeloComponentes()
+        public IList<string> GetOIDMarcaModeloComponentes()
         {
             List<string> marcamodelo = new List<string>();
 
             foreach (ComponenteAbstracto cmp in GetComponentes())
             {
-                marcamodelo.Add(cmp.Marca + ":" + cmp.Modelo);
+                marcamodelo.Add(cmp.GetOID()+ ":"+ cmp.Marca + ":" + cmp.Modelo);
             }
             return marcamodelo;
         }

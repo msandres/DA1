@@ -30,7 +30,7 @@ namespace DroneSystem.Persistencia.Broker
                     break;
                 case "Barometro": BrokerRetorno = new BrokerBarometro();
                     break;
-                case "Componente Compuesto": BrokerRetorno = new BrokerComponente();
+                case "ComponenteCompuesto": BrokerRetorno = new BrokerComponente();
                     break;
                 case "Gps": BrokerRetorno = new BrokerGps();
                     break;

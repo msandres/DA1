@@ -39,7 +39,7 @@ namespace DroneSystem.Dominio.Fabricas
                     break;
                 case "Barómetro": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5 });
                     break;
-                case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
+                case "Componente Compuesto": listaIdsLista = new List<int>(new int[] { 0, 1, 2});
                     break;
                 case "GPS": listaIdsLista = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 2, 3, 4, 5, 2, 3, 4, 5, });
                     break;
@@ -50,13 +50,17 @@ namespace DroneSystem.Dominio.Fabricas
             }
 
             int idConf = 0;
+            int idParam = -1;
             while (idConf < configuracion.Count)
             {
-                int idParam = listaIdsLista[idConf];
-
-                if (listaListasPar.Count - 1 < idParam)
+                if (idConf < listaIdsLista.Count)
                 {
-                    listaListasPar.Add(new List<object>());
+                     idParam = listaIdsLista[idConf];
+
+                    if (listaListasPar.Count - 1 < idParam)
+                    {
+                        listaListasPar.Add(new List<object>());
+                    }
                 }
                 listaListasPar[idParam].Add(configuracion[idConf]);
 
@@ -71,7 +75,7 @@ namespace DroneSystem.Dominio.Fabricas
                     break;
                 case "Barómetro": compAbs = FabricaBarometro.CrearDisenioBarometro(listaListasPar);
                     break;
-                case "Componente Compuesto": //parametros = GetMarcaModeloComponentes();
+                case "Componente Compuesto": compAbs = FabricaComponenteCompuesto.CrearDisenioCompuesto(listaListasPar);
                     break;
                 case "GPS": compAbs = FabricaGps.CrearDisenioGps(listaListasPar); 
                     break;

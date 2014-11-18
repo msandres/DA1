@@ -22,6 +22,24 @@ namespace DroneSystem.Ventanas
             dataGridDefinicion.Visible = false;
             txtBCantidad.Enabled = false;
 
+            OcultarMarcaModelo();
+        }
+
+        private void OcultarMarcaModelo()
+        {
+            lblMarca.Visible = false;
+            lblModelo.Visible = false;
+            txtBMarca.Visible = false;
+            txtBModelo.Visible = false;
+        }
+
+        private void MostrarMarcaModelo()
+        {
+            lblMarca.Visible = true;
+            lblModelo.Visible = true;
+            txtBMarca.Visible = true;
+            txtBModelo.Visible = true;
+            
         }
 
         private void LlenarCombo()
@@ -34,31 +52,71 @@ namespace DroneSystem.Ventanas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            List<object> parametrosConf = new List<object>();
-
-            parametrosConf.Add(cBTipos.SelectedItem);
-
-            int idRow = 0;
-
-            while (idRow<dataGridDefinicion.Rows.Count)
+            if (!txtBMarca.Enabled)
             {
-                int idCol = 0;
-                while(idCol<dataGridDefinicion.Columns.Count)
-                {
-                    parametrosConf.Add(dataGridDefinicion.Rows[idRow].Cells[idCol].Value);
-                    idCol++;
-                }
 
-                Fachada.GetInstancia().CrearComponente(parametrosConf);
-
-                parametrosConf = new List<object>();
+                List<object> parametrosConf = new List<object>();
 
                 parametrosConf.Add(cBTipos.SelectedItem);
 
-                idRow++;
+                if (txtBMarca.Enabled)
+                {
+                    parametrosConf.Add(txtBMarca.Text);
+                    parametrosConf.Add(txtBModelo.Text);
+                }
+
+                int idRow = 0;
+
+                while (idRow < dataGridDefinicion.Rows.Count)
+                {
+                    int idCol = 0;
+                    while (idCol < dataGridDefinicion.Columns.Count)
+                    {
+                        parametrosConf.Add(dataGridDefinicion.Rows[idRow].Cells[idCol].Value);
+                        idCol++;
+                    }
+
+                    Fachada.GetInstancia().CrearComponente(parametrosConf);
+
+                    parametrosConf = new List<object>();
+
+                    parametrosConf.Add(cBTipos.SelectedItem);
+
+                    idRow++;
+                }
+                MessageBox.Show("Se agregó componente");
+                this.Close();
             }
-            MessageBox.Show("Se agregó componente");
-            this.Close();
+            else
+            { 
+                 List<object> parametrosConf = new List<object>();
+
+                parametrosConf.Add(cBTipos.SelectedItem);
+
+                    parametrosConf.Add(txtBMarca.Text);
+                    parametrosConf.Add(txtBModelo.Text);
+               
+
+                int idRow = 0;
+
+                while (idRow < dataGridDefinicion.Rows.Count)
+                {
+                    int idCol = 0;
+                    while (idCol < dataGridDefinicion.Columns.Count)
+                    {
+                        parametrosConf.Add(dataGridDefinicion.Rows[idRow].Cells[idCol].Value);
+                        idCol++;
+                    }
+                    idRow++;
+                    }
+                    Fachada.GetInstancia().CrearComponente(parametrosConf);
+
+                 
+                
+                MessageBox.Show("Se agregó componente");
+                this.Close();
+            }
+            
         }
 
         private void cBTipos_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,19 +135,28 @@ namespace DroneSystem.Ventanas
             {
                 if (cBTipos.SelectedItem.ToString().Contains("Componente"))
                 {
+                    dataGridDefinicion.Columns.Add("OID", "OID");
                     dataGridDefinicion.Columns.Add("Marca", "Marca");
                     dataGridDefinicion.Columns.Add("Modelo", "Modelo");
 
+                    MostrarMarcaModelo();
+                    txtBCantidad.Text = "1";
+                    txtBCantidad.Enabled = false;
+
                     foreach (string cabezal in datosCabezales)
                     {
-                        string marca = cabezal.Split(':')[0];
-                        string modelo = cabezal.Split(':')[1];
-                        dataGridDefinicion.Rows.Add(marca, modelo);
+                        string oid = cabezal.Split(':')[0];
+                        string marca = cabezal.Split(':')[1];
+                        string modelo = cabezal.Split(':')[2];
+                        dataGridDefinicion.Rows.Add(oid,marca, modelo);
                     }
 
                 }
                 else
                 {
+                    OcultarMarcaModelo();
+                    txtBCantidad.Text = "0";
+                    txtBCantidad.Enabled = true;
 
                     foreach (string cabezal in datosCabezales)
                     {
@@ -101,7 +168,7 @@ namespace DroneSystem.Ventanas
                     }
                 }
                 dataGridDefinicion.Visible = true;
-                dataGridDefinicion.Enabled = false;
+                //dataGridDefinicion.Enabled = false;
             }
             else
             {
@@ -140,6 +207,7 @@ namespace DroneSystem.Ventanas
             {
                 dataGridDefinicion.Enabled = true;
                 dataGridDefinicion.ReadOnly = true;
+               
             }
             dataGridDefinicion.Refresh();
         }
@@ -152,6 +220,16 @@ namespace DroneSystem.Ventanas
         private void dataGridDefinicion_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("El tipo de dato de la celda no es correcto !!!");
+        }
+
+        private void txtBMarca_TextChanged(object sender, EventArgs e)
+        {
+            txtBCantidad.Enabled = false;
+        }
+
+        private void txtBModelo_TextChanged(object sender, EventArgs e)
+        {
+            txtBCantidad.Enabled = false;
         }
 
     }

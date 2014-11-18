@@ -11,13 +11,41 @@ namespace DroneSystem.Dominio.Composite
         private IList<ComponenteAbstracto> listacomponentes;
 
 
-        public ComponenteCompuesto()
+        public ComponenteCompuesto(string marca, string modelo, IList<int> idComponentes)
         {
             this.OID = SiguienteOID();
             AumentarOID();
-            //IdComponenteClase++;
-            //this.IdComponente = IdComponenteClase;
+
+            this.Marca = marca;
+            this.Modelo = modelo;
+
             listacomponentes = new List<ComponenteAbstracto>();
+
+            IList<ComponenteAbstracto> comps = Fachada.GetInstancia().GetComponentes();
+            int idComp = 0;
+            int cantComp = comps.Count;
+            while (idComp < cantComp)
+            {
+                bool restar = false;
+                foreach (int compCompuesto in idComponentes)
+                {
+                    
+                    if (!restar && comps[idComp].GetOID() == compCompuesto)
+                    {
+                        listacomponentes.Add(comps[idComp]);
+                        Fachada.GetInstancia().GetComponentes().RemoveAt(idComp);
+                        cantComp--;
+                        restar = true;
+                    }
+
+                }
+                if (restar)
+                    idComp--;
+
+                idComp++;
+            }
+
+            ResetarValores();
         }
 
         public IList<ComponenteAbstracto> GetComponentes()
@@ -82,12 +110,41 @@ namespace DroneSystem.Dominio.Composite
 
         protected override void CalcularValor(double X, double Y, double Z)
         {
-            throw new NotImplementedException();
+            foreach (ComponenteAbstracto componente in listacomponentes)
+            {
+                componente.SetValor(X, Y, Z);
+            }
         }
 
-        public override bool Alarmado()
+        public override void Alarmar() //Alarma el sensor en caso de que la medición actual pase los umbrales max y min
         {
-            return true;
+            if (this.tiempoAlarmado > 5)
+            {
+                this.destruido = true;
+                this.dronMedido.Destruir();
+            }
+            else
+            {
+                int largoListaValores = this.GetComponentes().Count;
+                int idLista = 0;
+                bool dioAlarma = false;
+                while (!dioAlarma && idLista < largoListaValores)   //recorro las variables medidas a ver si alguna está alarmada
+                {
+                    dioAlarma = this.GetComponentes()[idLista].Alarmado();
+                    idLista++;
+                }
+
+                if (dioAlarma)  //si alguna alarmó, marco como alarmado
+                {
+                    this.alarmado = true;
+                    this.tiempoAlarmado += 1;
+                }
+                else
+                {
+                    this.alarmado = false;
+                    this.tiempoAlarmado = 0;
+                }
+            }
         }
     }
 }
